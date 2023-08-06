@@ -1,3 +1,4 @@
+/* Initializes the website itself */
 *{
     margin: 0;
     padding: 0;
@@ -102,12 +103,15 @@ nav .fa{
 }
 /* This creates a right side overlay of the 5 options for mobile devices */
 @media screen and (max-width: 700px){
+    /* Sets the main message size up */
     .text-box h1{
         font-size: 20px;
     }
+    /* Sets up the display */
     .nav-links ul li{
         display: block;
     }
+    /* Sets up the link for the mobile devices */
     .nav-links{
         position: absolute;
         background: #f44336;
@@ -127,11 +131,12 @@ nav .fa{
         font-size: 22px;
         cursor: pointer;
     }
+    /* Sets up the space between hte content and the border of an element */
     .nav-links ul{
         padding: 30px;
     }
 }
-/* Description */
+/* Description Section that sets up the descriptions */
 .description{
    width: 80%;
    margin: auto;
@@ -177,19 +182,21 @@ h3{
 .me-col:hover{
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
+/* Add the features also for the mobile devies */
 @media screen and (max-width: 700px){
     .row{
         flex-direction: column;
     }
 }
 
-/* Photos */
+/* /* Photos Section, sets up the basic backgrounds */
 .photo{
     width: 80%;
     margin: auto;
     text-align: center;
     padding-top: 50px;
 }
+/* Sets up the images' layout */
 .me-col{
     flex-basis: 32%;
     border-radius: 10px;
@@ -197,6 +204,38 @@ h3{
     position: relative;
     overflow: hidden;
 }
+/* Sets up the width of the images */
 .me-col img{
     width: 100%;
+}
+/* Sets up the overlay when a mouse hovers over the image */
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+/* This adds the hover feature */
+.layer:hover{
+    background: rgba(226,0,0,0.5);
+}
+/* Sets the texts within the bottom of the images */
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 30px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: 0.5s;
+}
+/* Sets up the hover option for the text */
+.layer:hover h3 {
+    bottom: 49%;
+    opacity: 1;
 }
