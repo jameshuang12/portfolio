@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- The setup of the website with a title and what links are used -->
+    <meta name="viewpoint" content="with=device-width, initial-scale=1.0">
+     <title>James Huang Portfolio</title>
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" 
+     href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+</head>
+<body>
+    <!-- Class with the image, option, and icons -->
+    <section class="header">
+    <nav>
+        <!-- The image background of the website itself -->
+        <a href="jameshuang.html"><img src="images/VANDY.png"></a>
+        <div class="nav-links" id="navLinks">
+            <!-- The X button on the side bar that appears on media -->
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <!-- The options shown on the website -->
+                <li><a href="">HOME</a></li>
+                <li><a href="">INFO</a></li>
+                <li><a href="">LINKEDIN</a></li>
+                <li><a href="">GITHUB</a></li>
+                <li><a href="">YOUTUBE</a></li>
+            </ul>
+            <!-- The menu bar on the side bar that appears on media -->
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </div>
+
+    </nav>
+
+    <!-- Class that is a text box in the middle of the website -->
+<div class="text-box">
+    <h1>James Huang's Portfolio</h1>
+    <p>Welcome to my portfolio traveler! I'm currently a college student attending Vanderbilt University.</p>
+    <a href="" class="hero-btn">Click Me for More Info</a>
+</div>
+
+</section>
+
+<!-- This sections covers the bottom of the portfoliio -->
+<section class="description">
+    <h1>About me</h1>
+    <p>Majors: Computer Science & Applied Mathematics. <br> Minor: Human and Organizational Developement</p>
+
+    <div class="row">
+        <div class="me-col">
+            <h3>Interest</h3>
+            <p>I'm interesting in Quantitative Trading, Software Engineering, and Full-Stack Developement. I also
+                enjoy consulting, film, and learning new things. I love a challenge and problem solving.
+            </p>
+        </div>
+        <div class = "me-col">
+            <h3>Hobbies</h3>
+            <p>I like to play baseball, basketball, and other sports activities. I enjoy working out,
+                eating all kinds of cusines, and traveling to different areas around the world.  
+            </p>
+        </div>
+        <div class = "me-col">
+            <h3>Passion</h3>
+            <p>I am working on creating youtube content for my personal journal. I am also finding 
+                time to create my own portfolio. Lastly, I am trying to lean a new language and sign language.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Section -->
+<section class="photo">
+    <h1>Photos of me</h1>
+    <p>Some photos of me</p>
+
+    <div class="row">
+        <div class="me-col">
+            <img 
+        </div>
+    </div>
+</section>
+
+
+<!-- Javascipt for Toggle Menu -->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    console.log(navLinks)
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
+
+</body>
+</html>

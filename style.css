@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* This sets up the background image */
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("images/NYC.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/* This positions the nav in the website itself  */
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* This positions the vanderbilt image in the website */
+nav img{
+    width: 150px;
+}
+/* This positions the hyperlinks in the website */
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+/* This positions the hyperlinks vertically instead of horizontally */
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+   /* position: relative;*/
+}
+/* This changes the font of the hyperlinks */
+.nav-links ul li a{
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* This creates the underline below the hyperlinks*/
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #ff0000;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+/* This creates the overlay of the underline 
+when the mouse hovers over the hyperlinks */
+.nav-links ul li:hover::after{
+   width: 100%; 
+}
+
+/* This is the alignment for the text box James' website description */
+.text-box{
+    width: 60%;
+    color: #fff7f7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.18);
+}
+/* This changes the size of the 1st text box */
+.text-box h1{
+    font-size: 72px;
+}
+/* This changes the font of the 2nd and spaces out the 3rd text box */
+.text-box p{
+    margin: 1px 0 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fddddd;
+}
+/* This sets up the visual of the hyperlink at the bottom of the text box */
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 18px;
+    background:transparent;
+    position: relative;
+    cursor: pointer;
+}
+/* This provides the overshade of the text box whenever the arrow key hovers over */
+.hero-btn:hover{
+    border: 1px solid(#000000);
+    background: #000000;
+    transition: 1s;
+}
+/*  Hides the x and menu bar icon from the webiste */
+nav .fa{
+    display: none;
+}
+/* This creates a right side overlay of the 5 options for mobile devices */
+@media screen and (max-width: 700px){
+    .text-box h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 0.75s;
+    }
+    /* Displays the X icon and menu bar icon */
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+    }
+}
+/* Description */
+.description{
+   width: 80%;
+   margin: auto;
+   text-align: center;
+   padding-top: 100px;
+}
+/* Sets the font size and weight of the header in Description */
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+/* Sets up the second text below the about me in description */
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+/* This sets up the spacing between each of the about me information */
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+/* This sets up the border boxes that surrounds the about me infomation */
+.me-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+/* This aligns the about me text box to the center */
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+/* This creates an overshadow over the about me information border boxes when hovered over */
+.me-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+/* Photos */
+.photo{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+.me-col{
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.me-col img{
+    width: 100%;
+}
