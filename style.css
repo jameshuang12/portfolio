@@ -208,6 +208,7 @@ h3{
 /* Sets up the width of the images */
 .me-col img{
     width: 100%;
+    display: block;
 }
 /* Sets up the overlay when a mouse hovers over the image */
 .layer{
