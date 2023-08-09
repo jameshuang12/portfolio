@@ -40,6 +40,7 @@ nav img{
     color: #000000;
     text-decoration: none;
     font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
 }
 /* This creates the underline below the hyperlinks*/
 .nav-links ul li::after{
@@ -74,7 +75,7 @@ when the mouse hovers over the hyperlinks */
 }
 /* This changes the font of the 2nd and spaces out the 3rd text box */
 .text-box p{
-    margin: 1px 0 30px;
+    margin: 20px 0 30px;
     font-size: 20px;
     font-weight: bold;
     color: #fddddd;
@@ -220,12 +221,12 @@ h3{
 }
 /* This adds the hover feature */
 .layer:hover{
-    background: rgba(226,0,0,0.5);
+    background: rgba(255, 148, 148, 0.4);
 }
 /* Sets the texts within the bottom of the images */
 .layer h3{
     width: 100%;
-    font-weight: 500;
+    font-weight: 800;
     color: #fff;
     font-size: 30px;
     bottom: 0;
@@ -236,6 +237,6 @@ h3{
 }
 /* Sets up the hover option for the text */
 .layer:hover h3 {
-    bottom: 49%;
+    bottom: 50%;
     opacity: 1;
 }
