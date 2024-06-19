@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Info</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="header">
+    <nav>
+        <a href="index.html"><img src="images/VANDY.png" alt="Vanderbilt Logo"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="https://www.linkedin.com/in/james-huang12" target="_blank" rel="noopener noreferrer">LINKEDIN</a></li>
+                <li><a href="https://github.com/jameshuang12" target="_blank" rel="noopener noreferrer">GITHUB</a></li>
+                <li><a href="https://www.youtube.com/channel/UCXephjVOqqQ1KlqdfEIT-OQ" target="_blank" rel="noopener noreferrer">YOUTUBE</a></li>
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="text-box">
+        <h1>More Information</h1>
+        <p>This page contains more detailed information about James Huang.</p>
+    </div>
+</section>
+
+<!-- Additional Content Section -->
+<section class="description">
+    <h1>Detailed Information</h1>
+    <p>Here you can add more detailed information about your projects, experiences, and any other content you would like to share.</p>
+</section>
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
+</body>
+</html>
