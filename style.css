@@ -295,3 +295,70 @@ nav .fa{
         margin-bottom: 20px;
     }
 }
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.text-box {
+    margin: 20px 0;
+}
+
+.description {
+    padding: 20px;
+    text-align: center;
+}
+
+.additional-pdfs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pdf-frame {
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 620px; /* width of embed + padding */
+    height: 520px; /* height of embed + padding */
+}
+
+.pdf-frame iframe {
+    display: block;
+    width: 600px;
+    height: 500px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .pdf-frame {
+        width: 100%;
+        height: auto;
+    }
+    .pdf-frame iframe {
+        width: 100%;
+        height: auto;
+    }
+}
