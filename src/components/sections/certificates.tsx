@@ -5,10 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { certificatesData } from "@/data/certificates"
 import { Award, ExternalLink, FileText } from "lucide-react"
-import { useState } from "react"
 
 export function Certificates() {
-  const [selectedCert, setSelectedCert] = useState<string | null>(null)
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -4,6 +4,24 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwi
 
 🌐 **Live Site**: [https://jameshuang12.github.io/portfolio/](https://jameshuang12.github.io/portfolio/)
 
+## 🚀 Quick Start (Run Locally)
+
+```bash
+# Clone the repository
+git clone https://github.com/jameshuang12/portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open http://localhost:3000 in your browser
+```
+
+**That's it!** The portfolio will be running locally with hot-reload enabled.
+
 ## ✨ Features
 
 - 🎨 **Modern Design**: Clean, professional interface with smooth animations
