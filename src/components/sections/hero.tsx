@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
+import { Github, Linkedin, Mail, Download, Award } from "lucide-react"
 import { profileData } from "@/data/profile"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
@@ -116,6 +116,16 @@ export function Hero() {
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <a
+                  href={profileData.social.credly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Credly"
+                >
+                  <Award className="h-5 w-5" />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>

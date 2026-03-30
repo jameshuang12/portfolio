@@ -67,7 +67,7 @@ export function Skills() {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto"
         >
           {skillsData.map((skill) => {
-            const iconUrl = getIconUrl(skill.icon)
+            const iconUrl = skill.icon === "FALLBACK" ? null : getIconUrl(skill.icon)
             const hasError = imageErrors.has(skill.name)
             
             return (
@@ -75,14 +75,14 @@ export function Skills() {
                 <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
                   <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
                     {iconUrl && !hasError ? (
-                      <img 
-                        src={iconUrl} 
+                      <img
+                        src={iconUrl}
                         alt={skill.name}
                         className="w-12 h-12 object-contain dark:invert"
                         onError={() => handleImageError(skill.name)}
                       />
                     ) : (
-                      <div className="w-12 h-12 flex items-center justify-center text-2xl font-bold text-primary">
+                      <div className="w-12 h-12 flex items-center justify-center text-2xl font-bold text-primary bg-primary/10 rounded">
                         {skill.name.substring(0, 2).toUpperCase()}
                       </div>
                     )}

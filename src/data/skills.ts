@@ -1,6 +1,6 @@
 export interface Skill {
   name: string;
-  icon: string; // Simple Icons slug or emoji
+  icon: string; // Simple Icons slug or "FALLBACK" for text-only
   category: string;
 }
 
@@ -12,7 +12,7 @@ export const skillsData: Skill[] = [
   { name: "JavaScript", icon: "javascript", category: "Languages" },
   { name: "Rust", icon: "rust", category: "Languages" },
   { name: "HTML5", icon: "html5", category: "Languages" },
-  { name: "CSS3", icon: "css3", category: "Languages" },
+  { name: "CSS3", icon: "FALLBACK", category: "Languages" }, // Using fallback
   { name: "SQL", icon: "mysql", category: "Languages" },
   
   // Frameworks & Tools
@@ -34,7 +34,7 @@ export const skillsData: Skill[] = [
   { name: "GitHub", icon: "github", category: "DevOps" },
   { name: "Red Hat", icon: "redhat", category: "DevOps" },
   { name: "OpenShift", icon: "redhatopenshift", category: "DevOps" },
-  { name: "AWS", icon: "amazonwebservices", category: "DevOps" },
+  { name: "AWS", icon: "FALLBACK", category: "DevOps" }, // Using fallback
   
   // Additional Tools
   { name: "Git", icon: "git", category: "Tools" },
