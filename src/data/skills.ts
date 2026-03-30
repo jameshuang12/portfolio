@@ -8,53 +8,47 @@ export const skillsData: Skill[] = [
   // Languages
   { name: "Python", icon: "python", category: "Languages" },
   { name: "C++", icon: "cplusplus", category: "Languages" },
-  { name: "C", icon: "c", category: "Languages" },
-  { name: "JavaScript", icon: "javascript", category: "Languages" },
   { name: "TypeScript", icon: "typescript", category: "Languages" },
-  { name: "Java", icon: "java", category: "Languages" },
-  { name: "MATLAB", icon: "🔢", category: "Languages" },
+  { name: "JavaScript", icon: "javascript", category: "Languages" },
+  { name: "Rust", icon: "rust", category: "Languages" },
+  { name: "HTML", icon: "html5", category: "Languages" },
+  { name: "CSS", icon: "css3", category: "Languages" },
   { name: "SQL", icon: "mysql", category: "Languages" },
   
-  // Frontend
-  { name: "React", icon: "react", category: "Frontend" },
-  { name: "Next.js", icon: "nextdotjs", category: "Frontend" },
-  { name: "HTML5", icon: "html5", category: "Frontend" },
-  { name: "CSS3", icon: "css3", category: "Frontend" },
-  { name: "Tailwind CSS", icon: "tailwindcss", category: "Frontend" },
+  // Frameworks & Tools
+  { name: "FastAPI", icon: "fastapi", category: "Frameworks" },
+  { name: "NestJS", icon: "nestjs", category: "Frameworks" },
+  { name: "Node.js", icon: "nodedotjs", category: "Frameworks" },
+  { name: "React", icon: "react", category: "Frameworks" },
+  { name: "Next.js", icon: "nextdotjs", category: "Frameworks" },
+  { name: "Flask", icon: "flask", category: "Frameworks" },
+  { name: "Streamlit", icon: "streamlit", category: "Frameworks" },
   
-  // Backend & Tools
-  { name: "Node.js", icon: "nodedotjs", category: "Backend" },
-  { name: "Flask", icon: "flask", category: "Backend" },
-  { name: "Django", icon: "django", category: "Backend" },
-  { name: "REST APIs", icon: "🔌", category: "Backend" },
-  
-  // Database
-  { name: "PostgreSQL", icon: "postgresql", category: "Database" },
-  { name: "MongoDB", icon: "mongodb", category: "Database" },
-  { name: "Redis", icon: "redis", category: "Database" },
-  
-  // DevOps & Tools
-  { name: "Git", icon: "git", category: "DevOps" },
-  { name: "GitHub", icon: "github", category: "DevOps" },
+  // DevOps & Platforms
+  { name: "Podman", icon: "podman", category: "DevOps" },
   { name: "Docker", icon: "docker", category: "DevOps" },
-  { name: "Linux", icon: "linux", category: "DevOps" },
+  { name: "Kubernetes", icon: "kubernetes", category: "DevOps" },
+  { name: "Helm", icon: "helm", category: "DevOps" },
+  { name: "ArgoCD", icon: "argo", category: "DevOps" },
+  { name: "GitLab CI/CD", icon: "gitlab", category: "DevOps" },
+  { name: "GitHub", icon: "github", category: "DevOps" },
+  { name: "RHEL", icon: "redhat", category: "DevOps" },
+  { name: "OpenShift", icon: "redhatopenshift", category: "DevOps" },
   { name: "AWS", icon: "amazonaws", category: "DevOps" },
   
-  // Scientific & Data
-  { name: "NumPy", icon: "numpy", category: "Scientific" },
-  { name: "Pandas", icon: "pandas", category: "Scientific" },
-  { name: "Jupyter", icon: "jupyter", category: "Scientific" },
-  { name: "LabVIEW", icon: "🔬", category: "Scientific" },
-  { name: "Data Analysis", icon: "📊", category: "Scientific" },
+  // Additional Tools
+  { name: "Git", icon: "git", category: "Tools" },
+  { name: "Linux", icon: "linux", category: "Tools" },
+  { name: "PyQt", icon: "qt", category: "Tools" },
+  { name: "PostgreSQL", icon: "postgresql", category: "Tools" },
+  { name: "MongoDB", icon: "mongodb", category: "Tools" },
 ];
 
 export const skillCategories = [
   "Languages",
-  "Frontend",
-  "Backend",
-  "Database",
+  "Frameworks",
   "DevOps",
-  "Scientific",
+  "Tools",
 ];
 
 // Made with Bob

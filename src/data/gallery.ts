@@ -10,7 +10,7 @@ export interface GalleryImage {
 export const galleryData: GalleryImage[] = [
   {
     id: "me-profile",
-    src: "/portfolio/images/me.jpg",
+    src: "/images/me.jpg",
     alt: "James Huang - Professional Photo",
     title: "Professional Photo",
     description: "Professional headshot",
@@ -18,7 +18,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: "me-nyc",
-    src: "/portfolio/images/me_nyc.jpg",
+    src: "/images/me_nyc.jpg",
     alt: "James Huang in New York City",
     title: "New York City",
     description: "Exploring NYC",
@@ -26,7 +26,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: "me-baseball",
-    src: "/portfolio/images/me_baseball.jpg",
+    src: "/images/me_baseball.jpg",
     alt: "James Huang at Baseball Game",
     title: "Baseball Game",
     description: "Enjoying a baseball game",
@@ -34,7 +34,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: "nyc-skyline",
-    src: "/portfolio/images/NYC.png",
+    src: "/images/NYC.png",
     alt: "New York City Skyline",
     title: "NYC Skyline",
     description: "Beautiful NYC skyline view",
@@ -42,7 +42,7 @@ export const galleryData: GalleryImage[] = [
   },
   {
     id: "vanderbilt",
-    src: "/portfolio/images/VANDY.png",
+    src: "/images/VANDY.png",
     alt: "Vanderbilt",
     title: "Vanderbilt",
     description: "Vanderbilt University",
