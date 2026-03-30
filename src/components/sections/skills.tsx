@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { skillsData, skillCategories } from "@/data/skills"
 import { useState } from "react"
 
@@ -17,20 +17,29 @@ export function Skills() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
       },
     },
+  }
+
+  // Function to get icon URL from Simple Icons
+  const getIconUrl = (icon: string) => {
+    // If it's an emoji, return it directly
+    if (icon.match(/[\u{1F300}-\u{1F9FF}]/u)) {
+      return null
+    }
+    return `https://cdn.simpleicons.org/${icon}`
   }
 
   return (
@@ -45,7 +54,7 @@ export function Skills() {
         >
           <h2 className="text-4xl font-bold mb-4">Skills & Technologies</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency levels
+            Technologies and tools I work with
           </p>
         </motion.div>
 
@@ -88,35 +97,29 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto"
         >
-          {filteredSkills.map((skill, index) => (
-            <motion.div key={skill.name} variants={itemVariants}>
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-lg">{skill.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{skill.category}</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Proficiency</span>
-                      <span className="font-medium">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.05, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full"
+          {filteredSkills.map((skill) => {
+            const iconUrl = getIconUrl(skill.icon)
+            return (
+              <motion.div key={skill.name} variants={itemVariants}>
+                <Card className="h-full hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
+                  <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
+                    {iconUrl ? (
+                      <img 
+                        src={iconUrl} 
+                        alt={skill.name}
+                        className="w-12 h-12 object-contain dark:invert"
                       />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    ) : (
+                      <span className="text-4xl">{skill.icon}</span>
+                    )}
+                    <span className="text-sm font-medium">{skill.name}</span>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         {/* Skills Summary */}
@@ -128,7 +131,7 @@ export function Skills() {
           className="mt-12 text-center"
         >
           <p className="text-muted-foreground">
-            Showing {filteredSkills.length} of {skillsData.length} skills
+            {filteredSkills.length} {selectedCategory === "All" ? "total" : selectedCategory.toLowerCase()} skills
           </p>
         </motion.div>
       </div>

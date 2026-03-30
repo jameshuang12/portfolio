@@ -1,50 +1,60 @@
 export interface Skill {
   name: string;
-  level: number; // 0-100
+  icon: string; // Simple Icons slug or emoji
   category: string;
 }
 
 export const skillsData: Skill[] = [
-  // Frontend
-  { name: "React", level: 90, category: "Frontend" },
-  { name: "Next.js", level: 85, category: "Frontend" },
-  { name: "TypeScript", level: 85, category: "Frontend" },
-  { name: "JavaScript", level: 90, category: "Frontend" },
-  { name: "HTML/CSS", level: 90, category: "Frontend" },
-  { name: "Tailwind CSS", level: 85, category: "Frontend" },
-  { name: "Framer Motion", level: 75, category: "Frontend" },
+  // Languages
+  { name: "Python", icon: "python", category: "Languages" },
+  { name: "C++", icon: "cplusplus", category: "Languages" },
+  { name: "C", icon: "c", category: "Languages" },
+  { name: "JavaScript", icon: "javascript", category: "Languages" },
+  { name: "TypeScript", icon: "typescript", category: "Languages" },
+  { name: "Java", icon: "java", category: "Languages" },
+  { name: "MATLAB", icon: "🔢", category: "Languages" },
+  { name: "SQL", icon: "mysql", category: "Languages" },
   
-  // Backend
-  { name: "Node.js", level: 85, category: "Backend" },
-  { name: "Python", level: 80, category: "Backend" },
-  { name: "Java", level: 75, category: "Backend" },
-  { name: "REST APIs", level: 85, category: "Backend" },
-  { name: "GraphQL", level: 70, category: "Backend" },
+  // Frontend
+  { name: "React", icon: "react", category: "Frontend" },
+  { name: "Next.js", icon: "nextdotjs", category: "Frontend" },
+  { name: "HTML5", icon: "html5", category: "Frontend" },
+  { name: "CSS3", icon: "css3", category: "Frontend" },
+  { name: "Tailwind CSS", icon: "tailwindcss", category: "Frontend" },
+  
+  // Backend & Tools
+  { name: "Node.js", icon: "nodedotjs", category: "Backend" },
+  { name: "Flask", icon: "flask", category: "Backend" },
+  { name: "Django", icon: "django", category: "Backend" },
+  { name: "REST APIs", icon: "🔌", category: "Backend" },
   
   // Database
-  { name: "PostgreSQL", level: 80, category: "Database" },
-  { name: "MongoDB", level: 75, category: "Database" },
-  { name: "Redis", level: 70, category: "Database" },
+  { name: "PostgreSQL", icon: "postgresql", category: "Database" },
+  { name: "MongoDB", icon: "mongodb", category: "Database" },
+  { name: "Redis", icon: "redis", category: "Database" },
   
-  // Cloud & DevOps
-  { name: "AWS", level: 75, category: "Cloud & DevOps" },
-  { name: "Docker", level: 80, category: "Cloud & DevOps" },
-  { name: "Git", level: 90, category: "Cloud & DevOps" },
-  { name: "CI/CD", level: 75, category: "Cloud & DevOps" },
+  // DevOps & Tools
+  { name: "Git", icon: "git", category: "DevOps" },
+  { name: "GitHub", icon: "github", category: "DevOps" },
+  { name: "Docker", icon: "docker", category: "DevOps" },
+  { name: "Linux", icon: "linux", category: "DevOps" },
+  { name: "AWS", icon: "amazonaws", category: "DevOps" },
   
-  // Tools & Methodologies
-  { name: "Agile/Scrum", level: 85, category: "Methodologies" },
-  { name: "Software Architecture", level: 80, category: "Methodologies" },
-  { name: "Testing (Jest, Pytest)", level: 80, category: "Methodologies" },
-  { name: "Project Management", level: 85, category: "Methodologies" },
+  // Scientific & Data
+  { name: "NumPy", icon: "numpy", category: "Scientific" },
+  { name: "Pandas", icon: "pandas", category: "Scientific" },
+  { name: "Jupyter", icon: "jupyter", category: "Scientific" },
+  { name: "LabVIEW", icon: "🔬", category: "Scientific" },
+  { name: "Data Analysis", icon: "📊", category: "Scientific" },
 ];
 
 export const skillCategories = [
+  "Languages",
   "Frontend",
   "Backend",
   "Database",
-  "Cloud & DevOps",
-  "Methodologies",
+  "DevOps",
+  "Scientific",
 ];
 
 // Made with Bob
