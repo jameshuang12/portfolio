@@ -8,6 +8,7 @@ export const profileData = {
   phone: "(256) 668-7847",
   linkedin: "https://www.linkedin.com/in/james-huang12/",
   github: "https://github.com/jameshuang12",
+  credly: "https://www.credly.com/users/james-huang12/badges",
   portfolio: "https://jameshuang12.github.io/portfolio/",
   
   // Summary
@@ -30,6 +31,7 @@ export const profileData = {
   social: {
     linkedin: "https://www.linkedin.com/in/james-huang12/",
     github: "https://github.com/jameshuang12",
+    credly: "https://www.credly.com/users/james-huang12/badges",
     email: "jameshuang.business@gmail.com",
   },
   

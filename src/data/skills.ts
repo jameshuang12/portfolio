@@ -34,7 +34,7 @@ export const skillsData: Skill[] = [
   { name: "GitHub", icon: "github", category: "DevOps" },
   { name: "Red Hat", icon: "redhat", category: "DevOps" },
   { name: "OpenShift", icon: "redhatopenshift", category: "DevOps" },
-  { name: "AWS", icon: "amazonaws", category: "DevOps" },
+  { name: "AWS", icon: "amazonwebservices", category: "DevOps" },
   
   // Additional Tools
   { name: "Git", icon: "git", category: "Tools" },

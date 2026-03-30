@@ -68,31 +68,12 @@ export const projectsData: Project[] = [
       "Implemented algorithms for computing investment strategies",
     ],
   },
-  {
-    id: "portfolio-website",
-    title: "Modern Portfolio Website",
-    description: "Personal portfolio built with Next.js 14, TypeScript, and Framer Motion",
-    longDescription: "Developed a modern, responsive portfolio website using the latest web technologies. Features include dark/light theme, smooth animations, interactive components, and static site generation for optimal performance.",
-    technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com/jameshuang12/portfolio",
-    demoUrl: "https://jameshuang12.github.io/portfolio/",
-    featured: false,
-    category: "Web Development",
-    startDate: "2024-03",
-    highlights: [
-      "Built with Next.js 14 App Router and TypeScript",
-      "Implemented smooth animations with Framer Motion",
-      "Designed responsive UI with Tailwind CSS",
-      "Optimized for performance with static site generation",
-    ],
-  },
 ];
 
 export const projectCategories = [
   "Scientific Software",
   "Systems Programming",
   "Financial Technology",
-  "Web Development",
 ];
 
 // Instructions for adding more projects:

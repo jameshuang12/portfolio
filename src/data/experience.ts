@@ -3,8 +3,7 @@ export interface Experience {
   title: string;
   company: string;
   location: string;
-  startDate: string;
-  endDate: string;
+  duration: string; // e.g., "8 months", "3 months", "32 months"
   current: boolean;
   description: string;
   responsibilities: string[];
@@ -17,8 +16,7 @@ export const experienceData: Experience[] = [
     title: "Platform Engineer",
     company: "IBM",
     location: "New York, NY",
-    startDate: "2025-06",
-    endDate: "Present",
+    duration: "8 months",
     current: true,
     description: "Platform engineering role focused on hybrid-cloud solutions, database security, and enterprise client engagements.",
     responsibilities: [
@@ -34,8 +32,7 @@ export const experienceData: Experience[] = [
     title: "Software Development Intern",
     company: "Chalkline",
     location: "Nashville, TN",
-    startDate: "2024-09",
-    endDate: "2025-05",
+    duration: "9 months",
     current: false,
     description: "Software development internship focused on automation and operational efficiency improvements.",
     responsibilities: [
@@ -49,8 +46,7 @@ export const experienceData: Experience[] = [
     title: "Software Engineering Intern",
     company: "Booz Allen Hamilton",
     location: "Remote",
-    startDate: "2024-06",
-    endDate: "2025-02",
+    duration: "9 months",
     current: false,
     description: "Software engineering internship with focus on LLM integration, proxy services, and Agile team leadership.",
     responsibilities: [
@@ -65,8 +61,7 @@ export const experienceData: Experience[] = [
     title: "Systems Engineering Intern",
     company: "Jacobs",
     location: "Washington, D.C.",
-    startDate: "2023-05",
-    endDate: "2023-08",
+    duration: "4 months",
     current: false,
     description: "Systems engineering internship focused on SCPI device integration and automated testing.",
     responsibilities: [
@@ -80,8 +75,7 @@ export const experienceData: Experience[] = [
     title: "Research Assistant",
     company: "Vanderbilt School of Engineering",
     location: "Nashville, TN",
-    startDate: "2022-09",
-    endDate: "2025-05",
+    duration: "33 months",
     current: false,
     description: "Research assistant role developing software for quantum diamond microscopy and laboratory automation.",
     responsibilities: [
@@ -96,7 +90,7 @@ export const experienceData: Experience[] = [
 // 1. Copy an existing experience object
 // 2. Update the id to be unique (use kebab-case)
 // 3. Fill in all fields with your job details
-// 4. Use "Present" for endDate if currently employed
+// 4. Use duration in format "X months" or "X years Y months"
 // 5. Set current: true for your current position
 // 6. Add relevant technologies you used in the role
 // 7. List 4-6 key responsibilities that showcase your impact
