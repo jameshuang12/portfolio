@@ -2,15 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { skillsData, skillCategories } from "@/data/skills"
+import { skillsData } from "@/data/skills"
 import { useState } from "react"
 
 export function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All")
-
-  const filteredSkills = selectedCategory === "All" 
-    ? skillsData 
-    : skillsData.filter(skill => skill.category === selectedCategory)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,6 +38,10 @@ export function Skills() {
     return `https://cdn.simpleicons.org/${icon}`
   }
 
+  const handleImageError = (skillName: string) => {
+    setImageErrors(prev => new Set(prev).add(skillName))
+  }
+
   return (
     <section id="skills" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto">
@@ -58,39 +58,6 @@ export function Skills() {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          <button
-            onClick={() => setSelectedCategory("All")}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedCategory === "All"
-                ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-            }`}
-          >
-            All
-          </button>
-          {skillCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                selectedCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Skills Grid */}
         <motion.div
           variants={containerVariants}
@@ -99,20 +66,25 @@ export function Skills() {
           viewport={{ once: true }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto"
         >
-          {filteredSkills.map((skill) => {
+          {skillsData.map((skill) => {
             const iconUrl = getIconUrl(skill.icon)
+            const hasError = imageErrors.has(skill.name)
+            
             return (
               <motion.div key={skill.name} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-all hover:scale-105 cursor-pointer">
+                <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
                   <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
-                    {iconUrl ? (
+                    {iconUrl && !hasError ? (
                       <img 
                         src={iconUrl} 
                         alt={skill.name}
                         className="w-12 h-12 object-contain dark:invert"
+                        onError={() => handleImageError(skill.name)}
                       />
                     ) : (
-                      <span className="text-4xl">{skill.icon}</span>
+                      <div className="w-12 h-12 flex items-center justify-center text-2xl font-bold text-primary">
+                        {skill.name.substring(0, 2).toUpperCase()}
+                      </div>
                     )}
                     <span className="text-sm font-medium">{skill.name}</span>
                   </CardContent>
@@ -131,7 +103,7 @@ export function Skills() {
           className="mt-12 text-center"
         >
           <p className="text-muted-foreground">
-            {filteredSkills.length} {selectedCategory === "All" ? "total" : selectedCategory.toLowerCase()} skills
+            {skillsData.length} total skills
           </p>
         </motion.div>
       </div>

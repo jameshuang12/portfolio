@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { galleryData, galleryCategories } from "@/data/gallery"
+import { galleryData } from "@/data/gallery"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
 import { useState } from "react"
@@ -9,12 +9,7 @@ import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Gallery() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All")
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
-
-  const filteredImages = selectedCategory === "All"
-    ? galleryData
-    : galleryData.filter(img => img.category === selectedCategory)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -53,29 +48,6 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          {galleryCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                selectedCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Gallery Grid */}
         <motion.div
           variants={containerVariants}
@@ -84,7 +56,7 @@ export function Gallery() {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
-          {filteredImages.map((image) => (
+          {galleryData.map((image) => (
             <motion.div
               key={image.id}
               variants={itemVariants}
@@ -147,7 +119,7 @@ export function Gallery() {
           className="mt-12 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            Showing {filteredImages.length} of {galleryData.length} images
+            {galleryData.length} total images
           </p>
         </motion.div>
       </div>

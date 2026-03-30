@@ -3,19 +3,12 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { projectsData, projectCategories } from "@/data/projects"
+import { projectsData } from "@/data/projects"
 import { ExternalLink, Github, Calendar } from "lucide-react"
-import { useState } from "react"
 import Image from "next/image"
 import { getAssetPath } from "@/lib/paths"
 
 export function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All")
-
-  const filteredProjects = selectedCategory === "All"
-    ? projectsData
-    : projectsData.filter(project => project.category === selectedCategory)
-
   const featuredProjects = projectsData.filter(p => p.featured)
 
   const containerVariants = {
@@ -57,39 +50,6 @@ export function Projects() {
 
         {projectsData.length > 0 ? (
           <>
-            {/* Category Filter */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap justify-center gap-2 mb-12"
-            >
-              <button
-                onClick={() => setSelectedCategory("All")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === "All"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-background text-foreground hover:bg-accent"
-                }`}
-              >
-                All Projects
-              </button>
-              {projectCategories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-background text-foreground hover:bg-accent"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </motion.div>
-
             {/* Projects Grid */}
             <motion.div
               variants={containerVariants}
@@ -98,7 +58,7 @@ export function Projects() {
               viewport={{ once: true }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
             >
-              {filteredProjects.map((project) => (
+              {projectsData.map((project) => (
                 <motion.div key={project.id} variants={itemVariants}>
                   <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                     {project.imageUrl && (
@@ -184,7 +144,7 @@ export function Projects() {
               className="mt-12 text-center"
             >
               <p className="text-sm text-muted-foreground">
-                Showing {filteredProjects.length} of {projectsData.length} projects
+                {projectsData.length} total projects
                 {featuredProjects.length > 0 && ` • ${featuredProjects.length} featured`}
               </p>
             </motion.div>

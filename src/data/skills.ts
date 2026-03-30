@@ -11,8 +11,8 @@ export const skillsData: Skill[] = [
   { name: "TypeScript", icon: "typescript", category: "Languages" },
   { name: "JavaScript", icon: "javascript", category: "Languages" },
   { name: "Rust", icon: "rust", category: "Languages" },
-  { name: "HTML", icon: "html5", category: "Languages" },
-  { name: "CSS", icon: "css3", category: "Languages" },
+  { name: "HTML5", icon: "html5", category: "Languages" },
+  { name: "CSS3", icon: "css3", category: "Languages" },
   { name: "SQL", icon: "mysql", category: "Languages" },
   
   // Frameworks & Tools
@@ -30,16 +30,16 @@ export const skillsData: Skill[] = [
   { name: "Kubernetes", icon: "kubernetes", category: "DevOps" },
   { name: "Helm", icon: "helm", category: "DevOps" },
   { name: "ArgoCD", icon: "argo", category: "DevOps" },
-  { name: "GitLab CI/CD", icon: "gitlab", category: "DevOps" },
+  { name: "GitLab", icon: "gitlab", category: "DevOps" },
   { name: "GitHub", icon: "github", category: "DevOps" },
-  { name: "RHEL", icon: "redhat", category: "DevOps" },
+  { name: "Red Hat", icon: "redhat", category: "DevOps" },
   { name: "OpenShift", icon: "redhatopenshift", category: "DevOps" },
   { name: "AWS", icon: "amazonaws", category: "DevOps" },
   
   // Additional Tools
   { name: "Git", icon: "git", category: "Tools" },
   { name: "Linux", icon: "linux", category: "Tools" },
-  { name: "PyQt", icon: "qt", category: "Tools" },
+  { name: "Qt", icon: "qt", category: "Tools" },
   { name: "PostgreSQL", icon: "postgresql", category: "Tools" },
   { name: "MongoDB", icon: "mongodb", category: "Tools" },
 ];
