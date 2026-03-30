@@ -68,4 +68,3 @@ export function About() {
   )
 }
 
-// Made with Bob

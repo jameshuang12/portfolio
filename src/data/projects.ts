@@ -1,3 +1,13 @@
+/**
+ * Projects Data
+ *
+ * Portfolio projects displayed in the Projects section.
+ * Add new projects by following the interface structure.
+ * Set featured: true to highlight important projects.
+ *
+ * @module data/projects
+ */
+
 export interface Project {
   id: string;
   title: string;
@@ -54,4 +64,3 @@ export const projectCategories = [
   "Hackathon",
 ];
 
-// Made with Bob

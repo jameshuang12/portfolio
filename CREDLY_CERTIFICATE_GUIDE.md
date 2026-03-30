@@ -127,4 +127,3 @@ Check the existing certificates in `src/data/certificates.ts` for working exampl
 
 ---
 
-Made with Bob

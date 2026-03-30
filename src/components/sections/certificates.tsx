@@ -151,4 +151,3 @@ export function Certificates() {
   )
 }
 
-// Made with Bob

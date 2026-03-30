@@ -1,3 +1,13 @@
+/**
+ * Certificates Data
+ *
+ * Professional certifications and credentials displayed in the Certificates section.
+ * Add PDFs to public/images/ and reference them in the pdfPath field.
+ * Use credentialUrl for Credly badges or other verification links.
+ *
+ * @module data/certificates
+ */
+
 export interface Certificate {
   id: string;
   title: string;
@@ -73,4 +83,3 @@ TEMPLATE - Copy this to add a new certificate:
 
 */
 
-// Made with Bob

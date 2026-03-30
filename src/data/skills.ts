@@ -1,3 +1,12 @@
+/**
+ * Skills Data
+ *
+ * Technical skills and proficiencies displayed in the Skills section.
+ * Add or remove skills by editing the skillsData array.
+ *
+ * @module data/skills
+ */
+
 export interface Skill {
   name: string;
   icon: string; // DevIcon slug, Simple Icons slug, or "FALLBACK" for text-only
@@ -52,4 +61,3 @@ export const skillCategories = [
   "Tools",
 ];
 
-// Made with Bob

@@ -48,4 +48,3 @@ export function Footer() {
   )
 }
 
-// Made with Bob

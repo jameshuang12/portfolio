@@ -1,4 +1,14 @@
-/** @type {import('next').NextConfig} */
+/**
+ * Next.js Configuration
+ *
+ * Configured for static export to GitHub Pages
+ * - Static site generation with 'export' output
+ * - Base path '/portfolio' for GitHub Pages deployment
+ * - Unoptimized images for static hosting
+ * - Trailing slashes for better compatibility
+ *
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   output: 'export',
   // Use basePath only in production (GitHub Pages)
@@ -11,4 +21,3 @@ const nextConfig = {
 
 module.exports = nextConfig
 
-// Made with Bob

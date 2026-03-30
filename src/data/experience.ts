@@ -1,3 +1,12 @@
+/**
+ * Experience Data
+ *
+ * Work experience and professional history displayed in the Experience section.
+ * Add new positions by following the template at the bottom of this file.
+ *
+ * @module data/experience
+ */
+
 export interface Experience {
   id: string;
   title: string;
@@ -95,4 +104,3 @@ export const experienceData: Experience[] = [
 // 6. Add relevant technologies you used in the role
 // 7. List 4-6 key responsibilities that showcase your impact
 
-// Made with Bob

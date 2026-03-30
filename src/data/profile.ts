@@ -1,3 +1,12 @@
+/**
+ * Profile Data
+ *
+ * Personal information and professional details displayed throughout the portfolio.
+ * Update this file to change your personal information, contact details, and bio.
+ *
+ * @module data/profile
+ */
+
 export const profileData = {
   name: "James Huang",
   title: "Platform Engineer @ IBM",
@@ -59,4 +68,3 @@ export const profileData = {
   resume: "/portfolio/resume.pdf", // Update this path when you add your resume
 };
 
-// Made with Bob

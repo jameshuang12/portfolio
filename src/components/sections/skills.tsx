@@ -115,4 +115,3 @@ export function Skills() {
   )
 }
 
-// Made with Bob

@@ -127,4 +127,3 @@ export function Gallery() {
   )
 }
 
-// Made with Bob

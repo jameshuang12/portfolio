@@ -1,3 +1,13 @@
+/**
+ * Gallery Data
+ *
+ * Images displayed in the Gallery section.
+ * Add images to public/images/ and reference them here.
+ * Use categories to organize images (Professional, Personal, Places, Education).
+ *
+ * @module data/gallery
+ */
+
 export interface GalleryImage {
   id: string;
   src: string;
@@ -77,4 +87,3 @@ TEMPLATE - Copy this to add a new image:
 
 */
 
-// Made with Bob

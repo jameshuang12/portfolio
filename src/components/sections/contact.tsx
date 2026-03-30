@@ -195,4 +195,3 @@ export function Contact() {
   )
 }
 
-// Made with Bob
