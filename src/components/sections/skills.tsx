@@ -29,13 +29,16 @@ export function Skills() {
     },
   }
 
-  // Function to get icon URL from Simple Icons
-  const getIconUrl = (icon: string) => {
-    // If it's an emoji, return it directly
-    if (icon.match(/[\u{1F300}-\u{1F9FF}]/u)) {
+  // Function to get icon URL based on source
+  const getIconUrl = (skill: typeof skillsData[0]) => {
+    if (skill.iconSource === "fallback") {
       return null
     }
-    return `https://cdn.simpleicons.org/${icon}`
+    if (skill.iconSource === "devicon") {
+      return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`
+    }
+    // simpleicons
+    return `https://cdn.simpleicons.org/${skill.icon}`
   }
 
   const handleImageError = (skillName: string) => {
@@ -67,7 +70,7 @@ export function Skills() {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto"
         >
           {skillsData.map((skill) => {
-            const iconUrl = skill.icon === "FALLBACK" ? null : getIconUrl(skill.icon)
+            const iconUrl = getIconUrl(skill)
             const hasError = imageErrors.has(skill.name)
             
             return (
@@ -78,12 +81,12 @@ export function Skills() {
                       <img
                         src={iconUrl}
                         alt={skill.name}
-                        className="w-12 h-12 object-contain dark:invert"
+                        className="w-12 h-12 object-contain"
                         onError={() => handleImageError(skill.name)}
                       />
                     ) : (
-                      <div className="w-12 h-12 flex items-center justify-center text-2xl font-bold text-primary bg-primary/10 rounded">
-                        {skill.name.substring(0, 2).toUpperCase()}
+                      <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-primary bg-primary/10 rounded">
+                        {skill.name === "CSS3" ? "CSS" : skill.name === "AWS" ? "AWS" : skill.name.substring(0, 2).toUpperCase()}
                       </div>
                     )}
                     <span className="text-sm font-medium">{skill.name}</span>

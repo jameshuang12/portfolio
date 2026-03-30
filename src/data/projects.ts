@@ -31,13 +31,6 @@ export const projectsData: Project[] = [
     category: "Finance",
   },
   {
-    title: "Graph Analyzer",
-    description: "Advanced graph analysis tool for visualizing and analyzing complex network structures. Implements various graph algorithms including shortest path, centrality measures, and community detection.",
-    technologies: ["Python", "NetworkX", "Data Visualization", "Algorithms"],
-    github: "https://github.com/jameshuang12/GraphAnalyzer",
-    category: "Data Science",
-  },
-  {
     title: "HackDuke 2023 Project",
     description: "Hackathon project developed at Duke University focusing on social impact through technology. Built an innovative solution addressing real-world challenges with a team of developers.",
     technologies: ["JavaScript", "React", "Node.js", "APIs"],
@@ -49,7 +42,6 @@ export const projectsData: Project[] = [
 export const projectCategories = [
   "Research",
   "Finance",
-  "Data Science",
   "Hackathon",
 ];
 

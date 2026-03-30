@@ -126,7 +126,7 @@ export function Certificates() {
           ))}
         </motion.div>
 
-        {/* Add Certificate Instructions */}
+        {/* Credly Profile Link */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,11 +134,18 @@ export function Certificates() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="text-sm text-muted-foreground">
+          <Button size="lg" asChild>
+            <a
+              href="https://www.credly.com/users/james-huang12/badges"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Award className="mr-2 h-5 w-5" />
+              View All Badges on Credly
+            </a>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-4">
             {certificatesData.length} certificate{certificatesData.length !== 1 ? 's' : ''} earned
-          </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            To add more certificates, edit <code className="bg-secondary px-2 py-1 rounded">src/data/certificates.ts</code>
           </p>
         </motion.div>
       </div>

@@ -1,47 +1,48 @@
 export interface Skill {
   name: string;
-  icon: string; // Simple Icons slug or "FALLBACK" for text-only
+  icon: string; // DevIcon slug, Simple Icons slug, or "FALLBACK" for text-only
+  iconSource: "devicon" | "simpleicons" | "fallback";
   category: string;
 }
 
 export const skillsData: Skill[] = [
   // Languages
-  { name: "Python", icon: "python", category: "Languages" },
-  { name: "C++", icon: "cplusplus", category: "Languages" },
-  { name: "TypeScript", icon: "typescript", category: "Languages" },
-  { name: "JavaScript", icon: "javascript", category: "Languages" },
-  { name: "Rust", icon: "rust", category: "Languages" },
-  { name: "HTML5", icon: "html5", category: "Languages" },
-  { name: "CSS3", icon: "FALLBACK", category: "Languages" }, // Using fallback
-  { name: "SQL", icon: "mysql", category: "Languages" },
+  { name: "Python", icon: "python", iconSource: "devicon", category: "Languages" },
+  { name: "C++", icon: "cplusplus", iconSource: "devicon", category: "Languages" },
+  { name: "TypeScript", icon: "typescript", iconSource: "devicon", category: "Languages" },
+  { name: "JavaScript", icon: "javascript", iconSource: "devicon", category: "Languages" },
+  { name: "Rust", icon: "rust", iconSource: "devicon", category: "Languages" },
+  { name: "HTML5", icon: "html5", iconSource: "devicon", category: "Languages" },
+  { name: "CSS3", icon: "css3", iconSource: "devicon", category: "Languages" },
+  { name: "SQL", icon: "mysql", iconSource: "devicon", category: "Languages" },
   
   // Frameworks & Tools
-  { name: "FastAPI", icon: "fastapi", category: "Frameworks" },
-  { name: "NestJS", icon: "nestjs", category: "Frameworks" },
-  { name: "Node.js", icon: "nodedotjs", category: "Frameworks" },
-  { name: "React", icon: "react", category: "Frameworks" },
-  { name: "Next.js", icon: "nextdotjs", category: "Frameworks" },
-  { name: "Flask", icon: "flask", category: "Frameworks" },
-  { name: "Streamlit", icon: "streamlit", category: "Frameworks" },
+  { name: "FastAPI", icon: "fastapi", iconSource: "simpleicons", category: "Frameworks" },
+  { name: "NestJS", icon: "nestjs", iconSource: "simpleicons", category: "Frameworks" },
+  { name: "Node.js", icon: "nodejs", iconSource: "devicon", category: "Frameworks" },
+  { name: "React", icon: "react", iconSource: "devicon", category: "Frameworks" },
+  { name: "Next.js", icon: "nextjs", iconSource: "devicon", category: "Frameworks" },
+  { name: "Flask", icon: "flask", iconSource: "devicon", category: "Frameworks" },
+  { name: "Streamlit", icon: "streamlit", iconSource: "simpleicons", category: "Frameworks" },
   
   // DevOps & Platforms
-  { name: "Podman", icon: "podman", category: "DevOps" },
-  { name: "Docker", icon: "docker", category: "DevOps" },
-  { name: "Kubernetes", icon: "kubernetes", category: "DevOps" },
-  { name: "Helm", icon: "helm", category: "DevOps" },
-  { name: "ArgoCD", icon: "argo", category: "DevOps" },
-  { name: "GitLab", icon: "gitlab", category: "DevOps" },
-  { name: "GitHub", icon: "github", category: "DevOps" },
-  { name: "Red Hat", icon: "redhat", category: "DevOps" },
-  { name: "OpenShift", icon: "redhatopenshift", category: "DevOps" },
-  { name: "AWS", icon: "FALLBACK", category: "DevOps" }, // Using fallback
+  { name: "Podman", icon: "podman", iconSource: "devicon", category: "DevOps" },
+  { name: "Docker", icon: "docker", iconSource: "devicon", category: "DevOps" },
+  { name: "Kubernetes", icon: "kubernetes", iconSource: "devicon", category: "DevOps" },
+  { name: "Helm", icon: "helm", iconSource: "simpleicons", category: "DevOps" },
+  { name: "ArgoCD", icon: "argocd", iconSource: "devicon", category: "DevOps" },
+  { name: "GitLab", icon: "gitlab", iconSource: "devicon", category: "DevOps" },
+  { name: "GitHub", icon: "github", iconSource: "devicon", category: "DevOps" },
+  { name: "Red Hat", icon: "redhat", iconSource: "devicon", category: "DevOps" },
+  { name: "OpenShift", icon: "openshift", iconSource: "devicon", category: "DevOps" },
+  { name: "AWS", icon: "amazonwebservices", iconSource: "devicon", category: "DevOps" },
   
   // Additional Tools
-  { name: "Git", icon: "git", category: "Tools" },
-  { name: "Linux", icon: "linux", category: "Tools" },
-  { name: "Qt", icon: "qt", category: "Tools" },
-  { name: "PostgreSQL", icon: "postgresql", category: "Tools" },
-  { name: "MongoDB", icon: "mongodb", category: "Tools" },
+  { name: "Git", icon: "git", iconSource: "devicon", category: "Tools" },
+  { name: "Linux", icon: "linux", iconSource: "devicon", category: "Tools" },
+  { name: "Qt", icon: "qt", iconSource: "devicon", category: "Tools" },
+  { name: "PostgreSQL", icon: "postgresql", iconSource: "devicon", category: "Tools" },
+  { name: "MongoDB", icon: "mongodb", iconSource: "devicon", category: "Tools" },
 ];
 
 export const skillCategories = [
