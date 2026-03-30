@@ -82,6 +82,7 @@ export function Skills() {
                         src={iconUrl}
                         alt={skill.name}
                         className="w-12 h-12 object-contain"
+                        style={{ filter: 'none' }}
                         onError={() => handleImageError(skill.name)}
                       />
                     ) : (

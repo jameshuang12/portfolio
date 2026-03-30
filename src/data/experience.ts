@@ -75,7 +75,7 @@ export const experienceData: Experience[] = [
     title: "Research Assistant",
     company: "Vanderbilt School of Engineering",
     location: "Nashville, TN",
-    duration: "33 months",
+    duration: "2 years 9 months",
     current: false,
     description: "Research assistant role developing software for quantum diamond microscopy and laboratory automation.",
     responsibilities: [

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { projectsData } from "@/data/projects"
-import { ExternalLink, Github, Calendar } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 import { getAssetPath } from "@/lib/paths"
 
@@ -78,9 +78,8 @@ export function Projects() {
                     )}
                     <CardHeader>
                       <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription className="flex items-center gap-2 text-xs">
-                        <Calendar className="h-3 w-3" />
-                        {project.startDate} {project.endDate && `- ${project.endDate}`}
+                      <CardDescription className="text-xs">
+                        {project.category}
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col gap-4">
