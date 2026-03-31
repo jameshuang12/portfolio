@@ -10,20 +10,37 @@ This guide will help you deploy your portfolio to GitHub Pages.
 
 ## Deployment Steps
 
-### Quick Deploy (Recommended)
+### Automatic Deployment (Recommended)
 
-The easiest way to deploy is using the built-in deploy script:
+**GitHub Actions is configured to automatically deploy your site whenever you push to the `main` branch!**
+
+Simply commit and push your changes:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+GitHub Actions will automatically:
+1. Build the production site
+2. Create the `out` directory with optimized static files
+3. Add `.nojekyll` file (required for GitHub Pages)
+4. Deploy to the `gh-pages` branch
+
+You can monitor the deployment progress at:
+`https://github.com/jameshuang12/portfolio/actions`
+
+### Manual Deploy (Alternative)
+
+If you prefer to deploy manually, use the built-in deploy script:
 
 ```bash
 # Deploy to GitHub Pages in one command
 npm run deploy
 ```
 
-This will:
-1. Build the production site
-2. Create the `out` directory with optimized static files
-3. Add `.nojekyll` file (required for GitHub Pages)
-4. Deploy to the `gh-pages` branch automatically
+This will perform the same steps as the automatic deployment.
 
 ### Manual Deployment Steps
 
@@ -150,21 +167,27 @@ After making changes:
 # 2. Test locally
 npm run dev
 
-# 3. Commit your changes to main branch
+# 3. Commit and push to main branch
 git add .
 git commit -m "Update portfolio content"
 git push origin main
 
-# 4. Deploy to GitHub Pages
-npm run deploy
-
-# 5. Wait 1-2 minutes for deployment to complete
+# 4. GitHub Actions automatically deploys!
+# Monitor at: https://github.com/jameshuang12/portfolio/actions
 ```
 
-The `npm run deploy` command will:
+**That's it!** GitHub Actions will automatically:
 - Build the production site
 - Deploy to the `gh-pages` branch
-- GitHub Pages will automatically serve the updated site
+- Your changes will be live in 1-2 minutes
+
+### Manual Deployment (Optional)
+
+If you prefer to deploy manually without pushing to GitHub:
+
+```bash
+npm run deploy
+```
 
 ## Custom Domain (Optional)
 
