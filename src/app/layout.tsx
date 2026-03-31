@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jameshuang12.github.io/portfolio'),
   title: "James Huang | Software Engineer Portfolio",
   description: "Portfolio of James Huang - Software Engineer specializing in full-stack development, cloud technologies, and modern web applications.",
   keywords: ["James Huang", "Software Engineer", "Portfolio", "Full Stack Developer", "React", "Next.js", "TypeScript"],

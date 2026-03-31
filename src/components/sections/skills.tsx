@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { skillsData } from "@/data/skills"
 import { useState } from "react"
@@ -82,12 +83,15 @@ export function Skills() {
                 <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
                   <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
                     {iconUrl && !hasError ? (
-                      <img
+                      <Image
                         src={iconUrl}
                         alt={skill.name}
+                        width={48}
+                        height={48}
                         className="w-12 h-12 object-contain"
                         style={{ filter: 'none' }}
                         onError={() => handleImageError(skill.name)}
+                        unoptimized
                       />
                     ) : (
                       <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-primary bg-primary/10 rounded">

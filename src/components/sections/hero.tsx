@@ -86,12 +86,14 @@ export function Hero() {
                   Get In Touch
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href={profileData.resume} target="_blank" rel="noopener noreferrer">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download CV
-                </a>
-              </Button>
+              {profileData.resume && (
+                <Button size="lg" variant="outline" asChild>
+                  <a href={profileData.resume} target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-2 h-5 w-5" />
+                    Download CV
+                  </a>
+                </Button>
+              )}
             </motion.div>
 
             <motion.div

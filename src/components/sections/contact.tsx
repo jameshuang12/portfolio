@@ -20,8 +20,9 @@ export function Contact() {
     setStatus("sending")
     
     // Simulate form submission
+    // In production, replace this with actual form submission logic
     setTimeout(() => {
-      console.log("Form data:", formData)
+      // Form data would be sent to backend here
       setStatus("success")
       setFormData({ name: "", email: "", message: "" })
       setTimeout(() => setStatus("idle"), 3000)

@@ -65,6 +65,6 @@ export const profileData = {
   ],
   
   // Resume/CV link (if available)
-  resume: "/portfolio/resume.pdf", // Update this path when you add your resume
+  resume: undefined as string | undefined, // Set to "/portfolio/resume.pdf" when you add your resume
 };
 
