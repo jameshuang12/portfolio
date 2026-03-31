@@ -35,6 +35,10 @@ export function Skills() {
       return null
     }
     if (skill.iconSource === "devicon") {
+      // Special case for AWS - use plain-wordmark variant
+      if (skill.icon === "amazonwebservices") {
+        return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-plain-wordmark.svg`
+      }
       return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`
     }
     // simpleicons
