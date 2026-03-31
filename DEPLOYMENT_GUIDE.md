@@ -10,6 +10,25 @@ This guide will help you deploy your portfolio to GitHub Pages.
 
 ## Deployment Steps
 
+### Quick Deploy (Recommended)
+
+The easiest way to deploy is using the built-in deploy script:
+
+```bash
+# Deploy to GitHub Pages in one command
+npm run deploy
+```
+
+This will:
+1. Build the production site
+2. Create the `out` directory with optimized static files
+3. Add `.nojekyll` file (required for GitHub Pages)
+4. Deploy to the `gh-pages` branch automatically
+
+### Manual Deployment Steps
+
+If you prefer to deploy manually:
+
 ### 1. Build the Static Site
 
 ```bash
@@ -46,41 +65,39 @@ Then visit `http://localhost:3000` to verify everything works.
 git add .
 
 # Commit with a descriptive message
-git commit -m "Portfolio modernization complete - ready for deployment"
+git commit -m "Update portfolio content"
 
-# Push to your feature branch
-git push origin feature/portfolio-modernization
-```
-
-### 5. Merge to Main Branch
-
-Option A: Via GitHub Pull Request (Recommended)
-1. Go to https://github.com/jameshuang12/portfolio
-2. Create a Pull Request from `feature/portfolio-modernization` to `main`
-3. Review the changes
-4. Merge the Pull Request
-
-Option B: Via Command Line
-```bash
-# Switch to main branch
-git checkout main
-
-# Merge feature branch
-git merge feature/portfolio-modernization
-
-# Push to GitHub
+# Push to main branch
 git push origin main
 ```
 
-### 6. Configure GitHub Pages
+### 5. Deploy to gh-pages Branch
+
+```bash
+# Use the deploy script
+npm run deploy
+```
+
+OR manually:
+```bash
+# Install gh-pages if not already installed
+npm install --save-dev gh-pages
+
+# Deploy
+npx gh-pages -d out -t true
+```
+
+### 6. Configure GitHub Pages (One-time Setup)
 
 1. Go to your repository: https://github.com/jameshuang12/portfolio
 2. Click on **Settings**
 3. Scroll down to **Pages** in the left sidebar
 4. Under **Source**, select:
-   - Branch: `main`
+   - Branch: `gh-pages`
    - Folder: `/` (root)
 5. Click **Save**
+
+**Important:** GitHub Pages must be configured to deploy from the `gh-pages` branch, not `main`.
 
 ### 7. Wait for Deployment
 
@@ -133,16 +150,21 @@ After making changes:
 # 2. Test locally
 npm run dev
 
-# 3. Build for production
-npm run build
-
-# 4. Commit and push
+# 3. Commit your changes to main branch
 git add .
 git commit -m "Update portfolio content"
 git push origin main
 
-# 5. GitHub Pages will automatically redeploy
+# 4. Deploy to GitHub Pages
+npm run deploy
+
+# 5. Wait 1-2 minutes for deployment to complete
 ```
+
+The `npm run deploy` command will:
+- Build the production site
+- Deploy to the `gh-pages` branch
+- GitHub Pages will automatically serve the updated site
 
 ## Custom Domain (Optional)
 
