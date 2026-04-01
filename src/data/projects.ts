@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     title: "Low-Latency Trading System",
     description: "Built a high-performance trading system with microsecond-level latency. Implemented order matching engine, market data processing, and risk management using modern C++ and lock-free data structures.",
     technologies: ["C++", "Low-Latency", "Trading", "Performance Optimization"],
-    githubUrl: "https://github.com/jameshuang12/Low-Latency-Trading-System",
+    githubUrl: "https://github.com/jameshuang12/Low-Latency-Trading-System-101",
     category: "Finance",
     featured: true,
   },
@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
     title: "Stock Analyzer",
     description: "Full-stack web application for stock market analysis with real-time data visualization. Features include technical indicators, portfolio tracking, and predictive analytics using machine learning.",
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Machine Learning"],
-    githubUrl: "https://github.com/jameshuang12/stock-analyzer",
+    githubUrl: "https://github.com/jameshuang12/GraphAnalyzer",
     category: "Finance",
   },
   {

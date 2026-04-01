@@ -10,7 +10,7 @@
 export const profileData = {
   name: "James Huang",
   title: "Platform Engineer @ IBM",
-  tagline: "Software Engineer | Hybrid-Cloud Solutions | Full-Stack Development",
+  tagline: "Vanderbilt CS & Mathematics Graduate",
   bio: "Platform Engineer at IBM with expertise in hybrid-cloud solutions, database security, and enterprise client engagements. Experienced in full-stack development, DevOps, and building scalable systems. Passionate about automation, performance optimization, and delivering business value through technology.",
   location: "New York, NY",
   email: "jameshuang.business@gmail.com",
@@ -24,8 +24,8 @@ export const profileData = {
   summary: `Platform Engineer at IBM specializing in hybrid-cloud solutions and enterprise platform engineering. 
   Proven track record of delivering secure, scalable, and repeatable client environments while driving automation 
   and operational efficiency. Experienced in full-stack development, DevOps practices, and Agile methodologies. 
-  Strong background in software engineering with internships at leading companies including Booz Allen Hamilton, 
-  Chalkline, and Jacobs. Graduated from Vanderbilt University with a B.S. in Computer Science and Applied Mathematics.`,
+  Strong background in software engineering with internships at Booz Allen Hamilton, Chalkline, and Jacobs.
+  Passionate about building futuristic technologies to make the world a better place.`,
   
   // Key highlights
   highlights: [
