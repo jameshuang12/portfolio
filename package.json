@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Modern portfolio website for James Huang - Computer Science & Applied Mathematics @ Vanderbilt",
-  "author": "James Huang <james153018@gmail.com>",
+  "author": "James Huang <jameshuang.business@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -14,7 +14,6 @@ export const profileData = {
   bio: "Platform Engineer at IBM with expertise in hybrid-cloud solutions, database security, and enterprise client engagements. Experienced in full-stack development, DevOps, and building scalable systems. Passionate about automation, performance optimization, and delivering business value through technology.",
   location: "New York, NY",
   email: "jameshuang.business@gmail.com",
-  phone: "(256) 668-7847",
   linkedin: "https://www.linkedin.com/in/james-huang12/",
   github: "https://github.com/jameshuang12",
   credly: "https://www.credly.com/users/james-huang12/badges",
