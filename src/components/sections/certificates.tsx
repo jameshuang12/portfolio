@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { certificatesData } from "@/data/certificates"
 import { profileData } from "@/data/profile"
 import { Award, ExternalLink, FileText } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 export function Certificates() {
 
@@ -92,7 +93,7 @@ export function Certificates() {
                         className="flex-1"
                       >
                         <a
-                          href={cert.pdfPath}
+                          href={getAssetPath(cert.pdfPath)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
