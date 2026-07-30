@@ -40,6 +40,8 @@ export const skillsData: Skill[] = [
   { name: "Kubernetes", icon: "kubernetes", iconSource: "devicon", category: "DevOps" },
   { name: "Helm", icon: "helm", iconSource: "simpleicons", category: "DevOps" },
   { name: "ArgoCD", icon: "argocd", iconSource: "devicon", category: "DevOps" },
+  { name: "Terraform", icon: "terraform", iconSource: "devicon", category: "DevOps" },
+  { name: "Vault", icon: "vault", iconSource: "simpleicons", category: "DevOps" },
   { name: "GitLab", icon: "gitlab", iconSource: "devicon", category: "DevOps" },
   { name: "GitHub", icon: "github", iconSource: "devicon", category: "DevOps" },
   { name: "Red Hat", icon: "redhat", iconSource: "devicon", category: "DevOps" },
@@ -51,6 +53,7 @@ export const skillsData: Skill[] = [
   { name: "Linux", icon: "linux", iconSource: "devicon", category: "Tools" },
   { name: "Qt", icon: "qt", iconSource: "devicon", category: "Tools" },
   { name: "PostgreSQL", icon: "postgresql", iconSource: "devicon", category: "Tools" },
+  { name: "MySQL", icon: "mysql", iconSource: "devicon", category: "Tools" },
   { name: "MongoDB", icon: "mongodb", iconSource: "devicon", category: "Tools" },
 ];
 
@@ -60,4 +63,3 @@ export const skillCategories = [
   "DevOps",
   "Tools",
 ];
-

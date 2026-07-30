@@ -23,6 +23,18 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: "agentic-ai-platform",
+    title: "Agentic AI Development Platform",
+    description: "Prototyped an agentic Python platform unifying Salesforce, Monday, Box, and Slack to automate POC engagements. Orchestrated agents that extract CRM data, auto-provision boards, assign tasks, and push live status to distributed teams.",
+    technologies: ["Python", "Agentic AI", "Salesforce", "Slack", "Monday.com"],
+    category: "AI",
+    featured: true,
+    highlights: [
+      "Unified Salesforce, Monday, Box, and Slack into a single agentic automation platform",
+      "Orchestrated agents that extract CRM data, auto-provision boards, and push live status to teams",
+    ],
+  },
+  {
     id: "qudi-iqo-modules",
     title: "Qudi IQO Modules",
     description: "Developed Python modules for quantum optics experiments using Qudi framework. Implemented hardware interfaces for laser control, data acquisition, and real-time visualization of quantum measurements.",
@@ -59,8 +71,8 @@ export const projectsData: Project[] = [
 ];
 
 export const projectCategories = [
+  "AI",
   "Research",
   "Finance",
   "Hackathon",
 ];
-

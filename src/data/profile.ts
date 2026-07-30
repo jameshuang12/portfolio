@@ -11,7 +11,7 @@ export const profileData = {
   name: "James Huang",
   title: "Platform Engineer @ IBM",
   tagline: "Vanderbilt CS & Mathematics Graduate",
-  bio: "Platform Engineer at IBM with expertise in hybrid-cloud solutions, database security, and enterprise client engagements. Experienced in full-stack development, DevOps, and building scalable systems. Passionate about automation, performance optimization, and delivering business value through technology.",
+  bio: "Platform Engineer at IBM delivering enterprise PoCs, Generative AI solutions, and hybrid-cloud infrastructure for major clients. Experienced in full-stack development, DevOps, and Agentic AI. Passionate about automation, performance optimization, and translating technical solutions into measurable business value.",
   location: "New York, NY",
   email: "jameshuang.business@gmail.com",
   linkedin: "https://www.linkedin.com/in/james-huang12/",
@@ -20,19 +20,15 @@ export const profileData = {
   portfolio: "https://jameshuang12.github.io/portfolio/",
   
   // Summary
-  summary: `Platform Engineer at IBM specializing in hybrid-cloud solutions and enterprise platform engineering. 
-  Proven track record of delivering secure, scalable, and repeatable client environments while driving automation 
-  and operational efficiency. Experienced in full-stack development, DevOps practices, and Agile methodologies. 
-  Strong background in software engineering with internships at Booz Allen Hamilton, Chalkline, and Jacobs.
-  Passionate about building futuristic technologies to make the world a better place.`,
+  summary: `Platform Engineer at IBM delivering enterprise PoCs, Generative AI and Agentic AI solutions, and hybrid-cloud infrastructure for major clients. Executed over 15 client-facing pilots across 9 initiatives, including one that advanced a $5.4M license agreement. Experienced in full-stack development, DevOps, and solution architecture. Strong background in software engineering with internships at Booz Allen Hamilton, Chalkline, and Jacobs. Passionate about building futuristic technologies to make the world a better place.`,
   
   // Key highlights
   highlights: [
-    "Platform Engineering with Kubernetes, Docker, and Hybrid-Cloud Solutions",
+    "Platform Engineering with Kubernetes, Docker, Terraform, and Hybrid-Cloud Solutions",
+    "Generative AI & Agentic AI — LLMs, Orchestration, and AI Governance",
     "Full-Stack Development with Python, TypeScript, React, and Next.js",
-    "DevOps & CI/CD with GitLab, ArgoCD, Helm, and Infrastructure as Code",
-    "Enterprise Client Engagement and Solution Architecture",
-    "Automation & Process Optimization for Operational Efficiency",
+    "DevOps & CI/CD with GitLab, ArgoCD, Helm, Vault, and Infrastructure as Code",
+    "Enterprise Client Engagement, Solution Architecture, and Business Value Assessments",
   ],
   
   // Social links
