@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { certificatesData } from "@/data/certificates"
+import { profileData } from "@/data/profile"
 import { Award, ExternalLink, FileText } from "lucide-react"
 
 export function Certificates() {
@@ -134,7 +135,7 @@ export function Certificates() {
         >
           <Button size="lg" asChild>
             <a
-              href="https://www.credly.com/users/james-huang12/badges"
+              href={profileData.credly}
               target="_blank"
               rel="noopener noreferrer"
             >
