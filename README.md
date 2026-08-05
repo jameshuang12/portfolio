@@ -15,7 +15,7 @@ A modern, responsive portfolio website showcasing my professional experience, pr
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/) with App Router
+- **Framework**: [Next.js 16](https://nextjs.org/) with App Router
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components**: [Radix UI](https://www.radix-ui.com/)
@@ -27,7 +27,7 @@ A modern, responsive portfolio website showcasing my professional experience, pr
 
 ### Prerequisites
 
-- Node.js 18.0 or higher
+- Node.js 20.9 or higher
 - npm 9.0 or higher
 
 ### Installation
@@ -106,10 +106,6 @@ npm run deploy
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/jameshuang12/portfolio/issues).
-
 ## 📧 Contact
 
 James Huang - [jameshuang.business@gmail.com](mailto:jameshuang.business@gmail.com)
@@ -120,4 +116,4 @@ LinkedIn: [https://www.linkedin.com/in/james-huang12/](https://www.linkedin.com/
 
 ---
 
-Built with ❤️ using Next.js 14, TypeScript, and Tailwind CSS
+Built with ❤️ using Next.js 16, TypeScript, and Tailwind CSS

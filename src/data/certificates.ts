@@ -53,7 +53,7 @@ export const certificatesData: Certificate[] = [
     title: "Software Project Management Foundations",
     issuer: "LinkedIn Learning",
     issueDate: "2024",
-    pdfPath: "/images/CertificateOfCompletion_Software Project Management Foundations (1).pdf",
+    pdfPath: "/images/CertificateOfCompletion_Software Project Management Foundations.pdf",
     skills: ["Project Management", "Planning", "Risk Management", "Team Leadership"],
     description: "Essential project management skills including planning, execution, monitoring, and team coordination for software projects.",
   },
