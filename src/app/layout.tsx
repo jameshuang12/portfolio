@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/portfolio/images/me.jpg",
-        width: 1200,
-        height: 630,
+        width: 400,
+        height: 400,
         alt: "James Huang",
       },
     ],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "James Huang | Software Engineer Portfolio",
     description: "Portfolio of James Huang - Software Engineer specializing in full-stack development, cloud technologies, and modern web applications.",
     images: ["/portfolio/images/me.jpg"],
