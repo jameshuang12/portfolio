@@ -4,12 +4,30 @@ import { motion } from "framer-motion"
 import { galleryData } from "@/data/gallery"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Gallery() {
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
+  const [lightboxId, setLightboxId] = useState<string | null>(null)
+  const lightboxImage = galleryData.find((image) => image.id === lightboxId) ?? null
+
+  useEffect(() => {
+    if (!lightboxImage) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxId(null)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [lightboxImage])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,13 +78,23 @@ export function Gallery() {
             <motion.div
               key={image.id}
               variants={itemVariants}
-              className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-              onClick={() => setLightboxImage(image.src)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View larger image: ${image.title}`}
+              className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              onClick={() => setLightboxId(image.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  setLightboxId(image.id)
+                }
+              }}
             >
               <Image
                 src={getAssetPath(image.src)}
                 alt={image.alt}
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end p-4">
@@ -87,22 +115,28 @@ export function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightboxImage.title}
             className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-            onClick={() => setLightboxImage(null)}
+            onClick={() => setLightboxId(null)}
           >
             <Button
               variant="ghost"
               size="icon"
+              autoFocus
               className="absolute top-4 right-4 text-white hover:bg-white/20"
-              onClick={() => setLightboxImage(null)}
+              onClick={() => setLightboxId(null)}
+              aria-label="Close image"
             >
               <X className="h-6 w-6" />
             </Button>
             <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
               <Image
-                src={getAssetPath(lightboxImage)}
-                alt="Gallery image"
+                src={getAssetPath(lightboxImage.src)}
+                alt={lightboxImage.alt}
                 fill
+                sizes="100vw"
                 className="object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
@@ -126,4 +160,3 @@ export function Gallery() {
     </section>
   )
 }
-

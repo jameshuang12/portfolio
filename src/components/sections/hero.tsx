@@ -155,6 +155,7 @@ export function Hero() {
                   src={getAssetPath('/images/me.jpg')}
                   alt={profileData.name}
                   fill
+                  sizes="(min-width: 768px) 28rem, 90vw"
                   className="object-cover"
                   priority
                 />
@@ -174,6 +175,7 @@ export function Hero() {
           repeat: Infinity,
           repeatType: "reverse",
         }}
+        aria-hidden="true"
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">

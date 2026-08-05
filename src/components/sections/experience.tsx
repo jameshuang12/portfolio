@@ -60,14 +60,20 @@ export function Experience() {
                 <motion.div
                   key={exp.id}
                   variants={itemVariants}
-                  className={`relative mb-12 ${
-                    index % 2 === 0 ? "md:pr-1/2" : "md:pl-1/2 md:ml-auto"
+                  className={`relative mb-12 md:w-1/2 ${
+                    index % 2 === 0 ? "md:pr-8" : "md:pl-8 md:ml-auto"
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 w-4 h-4 bg-primary rounded-full border-4 border-background md:left-1/2 md:-ml-2" />
+                  <div
+                    className={`absolute left-8 w-4 h-4 bg-primary rounded-full border-4 border-background ${
+                      index % 2 === 0
+                        ? "md:left-auto md:right-0 md:-mr-2"
+                        : "md:left-0 md:-ml-2"
+                    }`}
+                  />
 
-                  <Card className={`ml-16 md:ml-0 ${index % 2 === 0 ? "md:mr-12" : "md:ml-12"}`}>
+                  <Card className="ml-16 md:ml-0">
                     <CardHeader>
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
