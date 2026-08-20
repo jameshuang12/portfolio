@@ -10,7 +10,7 @@
 export const profileData = {
   name: "James Huang",
   title: "Platform Engineer @ IBM",
-  tagline: "Vanderbilt CS & Mathematics Graduate",
+  tagline: "Vanderbilt CS & Math Graduate",
   bio: "Platform Engineer at IBM delivering enterprise PoCs, Generative AI solutions, and hybrid-cloud infrastructure for major clients. Experienced in full-stack development, DevOps, and Agentic AI. Passionate about automation, performance optimization, and translating technical solutions into measurable business value.",
   location: "New York, NY",
   email: "jameshuang.business@gmail.com",
