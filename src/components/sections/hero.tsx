@@ -58,9 +58,8 @@ export function Hero() {
             className="space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
-                Hi, I'm{" "}
-                <span className="text-amber-600 dark:text-amber-400">{profileData.name}</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary">
+                Hi, I'm {profileData.name}
               </h1>
             </motion.div>
 
