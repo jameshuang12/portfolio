@@ -1,2 +1,14 @@
-# Exclude generated/lock files from GitHub's language statistics
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Collapse large package manager metadata files in GitHub diffs
 package-lock.json linguist-generated=true
+package-lock.json -diff -merge
+
+# Handle common asset types explicitly
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
