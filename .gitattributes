@@ -1,0 +1,2 @@
+# Exclude generated/lock files from GitHub's language statistics
+package-lock.json linguist-generated=true
