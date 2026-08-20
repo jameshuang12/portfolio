@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Download, Award } from "lucide-react"
+import { Github, Linkedin, Mail, Download } from "lucide-react"
 import { profileData } from "@/data/profile"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
@@ -60,7 +60,7 @@ export function Hero() {
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
                 Hi, I'm{" "}
-                <span className="text-primary">{profileData.name}</span>
+                <span className="text-amber-600 dark:text-amber-400">{profileData.name}</span>
               </h1>
             </motion.div>
 
@@ -118,24 +118,6 @@ export function Hero() {
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href={profileData.social.credly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Credly"
-                >
-                  <Award className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href={`mailto:${profileData.social.email}`}
-                  aria-label="Email"
-                >
-                  <Mail className="h-5 w-5" />
                 </a>
               </Button>
             </motion.div>
