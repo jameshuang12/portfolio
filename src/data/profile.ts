@@ -20,11 +20,11 @@ export const profileData = {
   portfolio: "https://jameshuang12.github.io/portfolio/",
   
   // Summary
-  summary: `Platform Engineer at IBM delivering enterprise PoCs, Generative AI and Agentic AI solutions, and hybrid-cloud infrastructure for major clients. Executed over 15 client-facing pilots across 9 initiatives, including one that advanced a $5.4M license agreement. Experienced in full-stack development, DevOps, and solution architecture. Strong background in software engineering with internships at Booz Allen Hamilton, Chalkline, and Jacobs. Passionate about building futuristic technologies to make the world a better place.`,
+  summary: `I'm originally from Moulton, Alabama, a small town where my high school extracurriculars first sparked my interest in engineering and business. That interest pushed me to work hard for the opportunity to attend Vanderbilt University, where I studied Computer Science and Applied Mathematics. I now work as a Platform Engineer at IBM in New York City, and my focus has shifted over time from automation-driven products to AI and app integration. When I'm not working, you'll usually find me traveling, spending time with friends and family, trying new restaurants around the city, at the gym, outdoors, playing sports, or keeping up with the latest in tech.`,
   
   // Key highlights
   highlights: [
-    "Platform Engineering with Kubernetes, Docker, Terraform, and Hybrid-Cloud Solutions",
+    "Platform Engineering — Hybrid-Cloud Infrastructure, Database Security, and Enterprise Client PoCs",
     "Generative AI & Agentic AI — LLMs, Orchestration, and AI Governance",
     "Full-Stack Development with Python, TypeScript, React, and Next.js",
     "DevOps & CI/CD with GitLab, ArgoCD, Helm, Vault, and Infrastructure as Code",

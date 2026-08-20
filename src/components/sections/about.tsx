@@ -16,9 +16,6 @@ export function About() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Learn more about my background, skills, and passion for software engineering
-          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
