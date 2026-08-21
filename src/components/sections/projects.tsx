@@ -1,12 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { projectsData } from "@/data/projects"
 import { ExternalLink, Github } from "lucide-react"
-import Image from "next/image"
-import { getAssetPath } from "@/lib/paths"
 
 export function Projects() {
   const featuredProjects = projectsData.filter(p => p.featured)
@@ -50,43 +48,34 @@ export function Projects() {
 
         {projectsData.length > 0 ? (
           <>
-            {/* Projects Grid */}
+            {/* Showcase Rows */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+              className="max-w-4xl mx-auto flex flex-col gap-5"
             >
               {projectsData.map((project) => (
                 <motion.div key={project.id} variants={itemVariants}>
-                  <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
-                    {project.imageUrl && (
-                      <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
-                        <Image
-                          src={getAssetPath(project.imageUrl)}
-                          alt={project.title}
-                          fill
-                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                          className="object-cover"
-                        />
+                  <Card className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6 flex flex-col gap-3">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="text-xs font-mono text-muted-foreground uppercase tracking-wide mb-1">
+                            {project.category}
+                          </p>
+                          <h3 className="text-xl font-bold">{project.title}</h3>
+                        </div>
                         {project.featured && (
-                          <div className="absolute top-2 right-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full font-medium">
+                          <span className="px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full font-medium flex-shrink-0">
                             Featured
-                          </div>
+                          </span>
                         )}
                       </div>
-                    )}
-                    <CardHeader>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription className="text-xs">
-                        {project.category}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 flex flex-col gap-4">
-                      <p className="text-sm text-muted-foreground">{project.description}</p>
-                      
-                      {/* Technologies */}
+
+                      <p className="text-muted-foreground">{project.description}</p>
+
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
@@ -98,37 +87,26 @@ export function Projects() {
                         ))}
                       </div>
 
-                      {/* Highlights */}
-                      {project.highlights && project.highlights.length > 0 && (
-                        <ul className="space-y-1 text-sm">
-                          {project.highlights.slice(0, 2).map((highlight, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                              <span className="text-primary mt-0.5">•</span>
-                              <span>{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      {(project.githubUrl || project.demoUrl) && (
+                        <div className="flex gap-2 pt-1">
+                          {project.githubUrl && (
+                            <Button size="sm" asChild>
+                              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                <Github className="mr-2 h-4 w-4" />
+                                View Code
+                              </a>
+                            </Button>
+                          )}
+                          {project.demoUrl && (
+                            <Button variant="outline" size="sm" asChild>
+                              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Demo
+                              </a>
+                            </Button>
+                          )}
+                        </div>
                       )}
-
-                      {/* Action Buttons */}
-                      <div className="flex gap-2 mt-auto pt-4">
-                        {project.githubUrl && (
-                          <Button variant="outline" size="sm" asChild className="flex-1">
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                              <Github className="mr-2 h-4 w-4" />
-                              Code
-                            </a>
-                          </Button>
-                        )}
-                        {project.demoUrl && (
-                          <Button size="sm" asChild className="flex-1">
-                            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="mr-2 h-4 w-4" />
-                              Demo
-                            </a>
-                          </Button>
-                        )}
-                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>

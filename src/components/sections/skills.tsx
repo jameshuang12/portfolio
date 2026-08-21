@@ -35,6 +35,9 @@ export function Skills() {
     if (skill.iconSource === "fallback") {
       return null
     }
+    if (skill.iconSource === "url") {
+      return skill.icon
+    }
     if (skill.iconSource === "devicon") {
       // Special case for AWS - use plain-wordmark variant
       if (skill.icon === "amazonwebservices") {

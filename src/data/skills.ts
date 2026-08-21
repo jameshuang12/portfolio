@@ -9,8 +9,8 @@
 
 export interface Skill {
   name: string;
-  icon: string; // DevIcon slug, Simple Icons slug, or "FALLBACK" for text-only
-  iconSource: "devicon" | "simpleicons" | "fallback";
+  icon: string; // DevIcon slug, Simple Icons slug, direct image URL (for "url" source), or "FALLBACK" for text-only
+  iconSource: "devicon" | "simpleicons" | "url" | "fallback";
   category: string;
 }
 
@@ -35,8 +35,8 @@ export const skillsData: Skill[] = [
   { name: "Streamlit", icon: "streamlit", iconSource: "simpleicons", category: "Frameworks" },
   
   // AI & ML
-  { name: "OpenAI", icon: "openai", iconSource: "simpleicons", category: "AI & ML" },
-  { name: "watsonx", icon: "ibm", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "OpenAI", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/OpenAI_logo_2025_(wordmark).svg", iconSource: "url", category: "AI & ML" },
+  { name: "watsonx", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", iconSource: "url", category: "AI & ML" },
   { name: "Claude", icon: "claude", iconSource: "simpleicons", category: "AI & ML" },
   { name: "Cursor", icon: "cursor", iconSource: "simpleicons", category: "AI & ML" },
   { name: "GitHub Copilot", icon: "githubcopilot", iconSource: "simpleicons", category: "AI & ML" },
