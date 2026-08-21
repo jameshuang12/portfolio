@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { skillsData } from "@/data/skills"
+import { skillsData, skillCategories } from "@/data/skills"
 import { useState } from "react"
 
 export function Skills() {
@@ -66,45 +66,59 @@ export function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto"
-        >
-          {skillsData.map((skill) => {
-            const iconUrl = getIconUrl(skill)
-            const hasError = imageErrors.has(skill.name)
-            
+        {/* Skills by Category */}
+        <div className="max-w-6xl mx-auto space-y-10">
+          {skillCategories.map((category) => {
+            const categorySkills = skillsData.filter((skill) => skill.category === category)
+            if (categorySkills.length === 0) return null
+
             return (
-              <motion.div key={skill.name} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
-                  <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
-                    {iconUrl && !hasError ? (
-                      <Image
-                        src={iconUrl}
-                        alt={skill.name}
-                        width={48}
-                        height={48}
-                        className="w-12 h-12 object-contain"
-                        style={{ filter: 'none' }}
-                        onError={() => handleImageError(skill.name)}
-                        unoptimized
-                      />
-                    ) : (
-                      <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-primary bg-primary/10 rounded">
-                        {skill.name === "CSS3" ? "CSS" : skill.name === "AWS" ? "AWS" : skill.name.substring(0, 2).toUpperCase()}
-                      </div>
-                    )}
-                    <span className="text-sm font-medium">{skill.name}</span>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <div key={category}>
+                <h3 className="text-lg font-semibold text-muted-foreground uppercase tracking-wide mb-4">
+                  {category}
+                </h3>
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+                >
+                  {categorySkills.map((skill) => {
+                    const iconUrl = getIconUrl(skill)
+                    const hasError = imageErrors.has(skill.name)
+
+                    return (
+                      <motion.div key={skill.name} variants={itemVariants}>
+                        <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
+                          <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
+                            {iconUrl && !hasError ? (
+                              <Image
+                                src={iconUrl}
+                                alt={skill.name}
+                                width={48}
+                                height={48}
+                                className="w-12 h-12 object-contain"
+                                style={{ filter: 'none' }}
+                                onError={() => handleImageError(skill.name)}
+                                unoptimized
+                              />
+                            ) : (
+                              <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-primary bg-primary/10 rounded">
+                                {skill.name === "CSS3" ? "CSS" : skill.name === "AWS" ? "AWS" : skill.name.substring(0, 2).toUpperCase()}
+                              </div>
+                            )}
+                            <span className="text-sm font-medium">{skill.name}</span>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    )
+                  })}
+                </motion.div>
+              </div>
             )
           })}
-        </motion.div>
+        </div>
 
         {/* Skills Summary */}
         <motion.div

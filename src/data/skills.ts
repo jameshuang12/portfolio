@@ -34,6 +34,13 @@ export const skillsData: Skill[] = [
   { name: "Flask", icon: "flask", iconSource: "devicon", category: "Frameworks" },
   { name: "Streamlit", icon: "streamlit", iconSource: "simpleicons", category: "Frameworks" },
   
+  // AI & ML
+  { name: "OpenAI", icon: "openai", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "watsonx", icon: "ibm", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "Claude", icon: "claude", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "Cursor", icon: "cursor", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "GitHub Copilot", icon: "githubcopilot", iconSource: "simpleicons", category: "AI & ML" },
+
   // DevOps & Platforms
   { name: "Podman", icon: "podman", iconSource: "devicon", category: "DevOps" },
   { name: "Docker", icon: "docker", iconSource: "devicon", category: "DevOps" },
@@ -60,6 +67,7 @@ export const skillsData: Skill[] = [
 export const skillCategories = [
   "Languages",
   "Frameworks",
+  "AI & ML",
   "DevOps",
   "Tools",
 ];

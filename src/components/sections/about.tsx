@@ -30,7 +30,7 @@ export function About() {
                 <CardTitle>My Story</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground leading-relaxed">
                   {profileData.summary}
                 </p>
               </CardContent>
@@ -52,7 +52,7 @@ export function About() {
                   {profileData.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start">
                       <span className="text-primary mr-2">✓</span>
-                      <span className="text-muted-foreground">{highlight}</span>
+                      <span className="text-foreground">{highlight}</span>
                     </li>
                   ))}
                 </ul>
