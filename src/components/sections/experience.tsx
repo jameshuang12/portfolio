@@ -1,9 +1,53 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
 import { experienceData } from "@/data/experience"
-import { Briefcase, Calendar, MapPin } from "lucide-react"
+import { Briefcase, type LucideIcon } from "lucide-react"
+
+// Each company's real logo/icon source. IBM and Chalkline use directly-hosted
+// assets (IBM's own site icon; Chalkline's inline favicon SVG) since neither
+// is findable via Simple Icons or Google's favicon proxy. The rest use
+// Google's favicon service against their real domain.
+const companyIconSrc: Record<string, string> = {
+  IBM: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+  "Chalkline":
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307100E'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='none' stroke='%23A6F0B5' stroke-width='1.4' stroke-dasharray='0 2.6' stroke-linecap='round' opacity='0.55'/%3E%3Cpath d='M10 16.6 L14.3 20.8 L22.4 11.2' fill='none' stroke='%236FE38A' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+  "Booz Allen Hamilton": "https://www.google.com/s2/favicons?domain=boozallen.com&sz=64",
+  "Jacobs": "https://www.google.com/s2/favicons?domain=jacobs.com&sz=64",
+  "Vanderbilt School of Engineering": "https://www.google.com/s2/favicons?domain=vanderbilt.edu&sz=64",
+}
+
+function CompanyBadge({ company }: { company: string }) {
+  const [imageError, setImageError] = useState(false)
+  const src = companyIconSrc[company]
+
+  if (src && !imageError) {
+    return (
+      <div className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center flex-shrink-0 overflow-hidden">
+        <Image
+          src={src}
+          alt={company}
+          width={28}
+          height={28}
+          className="object-contain"
+          unoptimized
+          onError={() => setImageError(true)}
+        />
+      </div>
+    )
+  }
+
+  const FallbackIcon: LucideIcon = Briefcase
+
+  return (
+    <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+      <FallbackIcon className="w-5 h-5" />
+    </div>
+  )
+}
 
 export function Experience() {
   const containerVariants = {
@@ -11,18 +55,18 @@ export function Experience() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
       },
     },
   }
@@ -37,7 +81,7 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
+          <h2 className="text-4xl font-bold mb-4">Work Experiences</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My professional journey and key accomplishments
           </p>
@@ -49,91 +93,42 @@ export function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
           >
-            {/* Timeline */}
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border md:left-1/2" />
-
-              {experienceData.map((exp, index) => (
-                <motion.div
-                  key={exp.id}
-                  variants={itemVariants}
-                  className={`relative mb-12 md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-8" : "md:pl-8 md:ml-auto"
-                  }`}
-                >
-                  {/* Timeline dot */}
-                  <div
-                    className={`absolute left-8 w-4 h-4 bg-primary rounded-full border-4 border-background ${
-                      index % 2 === 0
-                        ? "md:left-auto md:right-0 md:-mr-2"
-                        : "md:left-0 md:-ml-2"
-                    }`}
-                  />
-
-                  <Card className="ml-16 md:ml-0">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-xl mb-1">{exp.title}</CardTitle>
-                          <CardDescription className="flex items-center gap-2 mb-2">
-                            <Briefcase className="h-4 w-4" />
-                            {exp.company}
-                          </CardDescription>
-                        </div>
-                        {exp.current && (
-                          <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
-                            Current
+            {experienceData.map((exp) => (
+              <motion.div key={exp.id} variants={itemVariants}>
+                <Card className="h-full">
+                  <CardContent className="p-5 flex flex-col gap-3">
+                    <div className="flex items-start gap-3">
+                      <CompanyBadge company={exp.company} />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold leading-tight">{exp.company}</p>
+                        <p className="text-sm text-muted-foreground leading-tight">{exp.title}</p>
+                      </div>
+                      {exp.current && (
+                        <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-medium flex-shrink-0">
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground">{exp.duration}</p>
+                    <p className="text-sm text-foreground">{exp.description}</p>
+                    {exp.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+                        {exp.technologies.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-md"
+                          >
+                            {tech}
                           </span>
-                        )}
+                        ))}
                       </div>
-                      <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {exp.duration}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {exp.location}
-                        </span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground">{exp.description}</p>
-                      
-                      {exp.responsibilities.length > 0 && (
-                        <div>
-                          <h4 className="font-semibold mb-2">Key Responsibilities:</h4>
-                          <ul className="space-y-1">
-                            {exp.responsibilities.map((resp, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                <span className="text-primary mt-1">•</span>
-                                <span>{resp}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {exp.technologies.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {exp.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
         ) : (
           <motion.div

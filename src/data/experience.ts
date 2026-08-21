@@ -27,7 +27,7 @@ export const experienceData: Experience[] = [
     location: "New York, NY",
     duration: "Jun 2025 – Present",
     current: true,
-    description: "Platform engineering role delivering enterprise PoCs, hybrid-cloud infrastructure, and Generative AI solutions for major clients.",
+    description: "Platform engineering role delivering enterprise PoCs, hybrid-cloud infrastructure, and AI-driven automation solutions for major clients.",
     responsibilities: [
       "Executed over 15 client-facing PoCs across 9 enterprise initiatives, including a pilot that advanced a $5.4M 3-year enterprise license agreement",
       "Accelerated delivery to under 4 weeks per pilot by provisioning dedicated demo environments across hybrid-cloud infrastructure for up to 5 concurrent pilots",
@@ -36,7 +36,7 @@ export const experienceData: Experience[] = [
       "Deployed solutions across multiple IBM platforms spanning automation, AIOps, enterprise integration, and Z software to cut costs, eliminate manual workflows, and drive operational efficiency for enterprise clients",
       "Led client discovery workshops and technical design sessions, architecting pilot solutions and developing Business Value Assessments to translate enterprise challenges into quantifiable ROI",
     ],
-    technologies: ["Kubernetes", "Docker", "Podman", "Helm", "ArgoCD", "RHEL", "OCP", "AWS", "GitLab CI/CD", "Terraform", "Vault"],
+    technologies: ["Pre-Sales", "Field Engineering", "GenAI", "Hybrid-Cloud", "Kubernetes", "Docker", "Podman", "Helm", "ArgoCD", "RHEL", "OCP", "AWS", "GitLab CI/CD", "Terraform", "Vault"],
   },
   {
     id: "chalkline-swe-intern",
@@ -65,7 +65,7 @@ export const experienceData: Experience[] = [
       "Architected a high-performance proxy service enabling seamless middleware integration for a client-facing LLM platform",
       "Managed a 6-person team as Scrum Master, facilitating daily standups, sprint planning, and ticket grooming in GitLab",
     ],
-    technologies: ["Python", "FastAPI", "LLM", "GitLab", "Agile/Scrum"],
+    technologies: ["Python", "TypeScript", "Next.js", "FastAPI", "LLM", "Agile/Scrum"],
   },
   {
     id: "vanderbilt-research",

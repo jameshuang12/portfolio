@@ -119,19 +119,6 @@ export function Skills() {
             )
           })}
         </div>
-
-        {/* Skills Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <p className="text-muted-foreground">
-            {skillsData.length} total skills
-          </p>
-        </motion.div>
       </div>
     </section>
   )
