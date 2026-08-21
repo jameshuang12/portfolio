@@ -53,6 +53,14 @@ export const projectsData: Project[] = [
     featured: true,
   },
   {
+    id: "vandy-flights",
+    title: "Vandy Flights",
+    description: "Flight booking system developed in React, FastAPI, and Firebase.",
+    technologies: ["React", "FastAPI", "Firebase", "Python", "JavaScript"],
+    githubUrl: "https://github.com/lanierjh/VandyFlights",
+    category: "Web",
+  },
+  {
     id: "stock-analyzer",
     title: "Stock Analyzer",
     description: "Full-stack web application for stock market analysis with real-time data visualization. Features include technical indicators, portfolio tracking, and predictive analytics using machine learning.",
@@ -75,4 +83,5 @@ export const projectCategories = [
   "Research",
   "Finance",
   "Hackathon",
+  "Web",
 ];
