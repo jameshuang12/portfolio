@@ -24,11 +24,12 @@ export const profileData = {
   
   // Key highlights
   highlights: [
-    "Platform Engineering — Hybrid-Cloud Infrastructure, Database Security, and Enterprise Client PoCs",
-    "Generative AI & Agentic AI — LLMs, Orchestration, and AI Governance",
+    "Platform Engineering across Hybrid-Cloud Infrastructure, Database Security, and Enterprise Client PoCs",
+    "Generative AI and Agentic AI, including LLM Orchestration and AI Governance",
     "Full-Stack Development with Python, TypeScript, React, and Next.js",
-    "DevOps & CI/CD with GitLab, ArgoCD, Helm, Vault, and Infrastructure as Code",
-    "Enterprise Client Engagement, Solution Architecture, and Business Value Assessments",
+    "Process Automation That Cut Costs by $30K and Scaled Operations 10x",
+    "LLM Integration and Proxy Services for Enterprise AI Platforms",
+    "Laboratory Automation and Hardware Control for Quantum Research",
   ],
   
   // Social links
