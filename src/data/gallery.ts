@@ -3,7 +3,7 @@
  *
  * Images displayed in the Gallery section.
  * Add images to public/images/ and reference them here.
- * Use categories to organize images (Professional, Personal, Places, Education).
+ * Use categories to organize images (Professional, Milestones, Travel, Food).
  *
  * @module data/gallery
  */
@@ -15,6 +15,8 @@ export interface GalleryImage {
   title: string;
   description?: string;
   category: string;
+  width: number;
+  height: number;
 }
 
 export const galleryData: GalleryImage[] = [
@@ -23,49 +25,59 @@ export const galleryData: GalleryImage[] = [
     src: "/images/me.jpg",
     alt: "James Huang - Professional Photo",
     title: "Professional Photo",
-    description: "Professional headshot",
+    description: "A professional headshot",
     category: "Professional",
+    width: 400,
+    height: 400,
   },
   {
-    id: "me-nyc",
-    src: "/images/me_nyc.jpg",
-    alt: "James Huang in New York City",
-    title: "New York City",
-    description: "Exploring NYC",
-    category: "Personal",
+    id: "graduation",
+    src: "/images/gallery-graduation.jpg",
+    alt: "James Huang at Vanderbilt graduation with family",
+    title: "Vanderbilt Graduation",
+    description: "Celebrating Vanderbilt commencement with family",
+    category: "Milestones",
+    width: 1350,
+    height: 1800,
   },
   {
-    id: "me-baseball",
-    src: "/images/me_baseball.jpg",
-    alt: "James Huang at Baseball Game",
-    title: "Baseball Game",
-    description: "Enjoying a baseball game",
-    category: "Personal",
+    id: "hong-kong-skyline",
+    src: "/images/gallery-hong-kong-skyline.jpg",
+    alt: "Hong Kong skyline at night from Victoria Harbour",
+    title: "Hong Kong Skyline",
+    description: "An appreciation for travel and exploring new places",
+    category: "Travel",
+    width: 1200,
+    height: 1800,
   },
   {
-    id: "nyc-skyline",
-    src: "/images/NYC.png",
-    alt: "New York City Skyline",
-    title: "NYC Skyline",
-    description: "Beautiful NYC skyline view",
-    category: "Places",
+    id: "tasting-menu",
+    src: "/images/gallery-tasting-menu.jpg",
+    alt: "Courses from a multi-course tasting menu",
+    title: "Tasting Menu",
+    description: "An interest in culinary exploration and trying new cuisines",
+    category: "Food",
+    width: 1012,
+    height: 1800,
   },
   {
-    id: "vanderbilt",
-    src: "/images/VANDY.png",
-    alt: "Vanderbilt",
-    title: "Vanderbilt",
-    description: "Vanderbilt University",
-    category: "Education",
+    id: "duck-dish",
+    src: "/images/gallery-duck-dish.jpg",
+    alt: "Seared duck course at a restaurant",
+    title: "Seared Duck",
+    description: "Duck remains one of my favorite dishes",
+    category: "Food",
+    width: 1800,
+    height: 1141,
   },
 ];
 
 export const galleryCategories = [
   "All",
   "Professional",
-  "Personal",
-  "Places",
-  "Education",
+  "Milestones",
+  "Travel",
+  "Food",
 ];
 
 // Instructions for adding new images:
@@ -78,12 +90,11 @@ TEMPLATE - Copy this to add a new image:
 
 {
   id: "unique-image-id",
-  src: "/portfolio/images/your-image.jpg",
+  src: "/images/your-image.jpg",
   alt: "Descriptive alt text for accessibility",
   title: "Image Title",
   description: "Brief description of the image",
-  category: "Professional", // or Personal, Places, Education, etc.
+  category: "Professional", // or Milestones, Travel, Food, etc.
 },
 
 */
-

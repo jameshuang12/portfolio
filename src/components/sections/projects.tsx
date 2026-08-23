@@ -29,8 +29,6 @@ const projectVisuals: Record<string, LucideIcon> = {
 }
 
 export function Projects() {
-  const featuredProjects = projectsData.filter(p => p.featured)
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -140,20 +138,6 @@ export function Projects() {
                   </Card>
                 </motion.div>
               ))}
-            </motion.div>
-
-            {/* Projects Summary */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="mt-12 text-center"
-            >
-              <p className="text-sm text-muted-foreground">
-                {projectsData.length} total projects
-                {featuredProjects.length > 0 && ` • ${featuredProjects.length} featured`}
-              </p>
             </motion.div>
           </>
         ) : (

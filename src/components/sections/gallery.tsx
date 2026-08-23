@@ -5,21 +5,28 @@ import { galleryData } from "@/data/gallery"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { X } from "lucide-react"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Gallery() {
-  const [lightboxId, setLightboxId] = useState<string | null>(null)
-  const lightboxImage = galleryData.find((image) => image.id === lightboxId) ?? null
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const lightboxImage = lightboxIndex !== null ? galleryData[lightboxIndex] : null
+
+  const showPrev = () =>
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + galleryData.length) % galleryData.length))
+  const showNext = () =>
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % galleryData.length))
 
   useEffect(() => {
-    if (!lightboxImage) return
+    if (lightboxIndex === null) return
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxId(null)
+      if (e.key === "Escape") setLightboxIndex(null)
+      if (e.key === "ArrowLeft") showPrev()
+      if (e.key === "ArrowRight") showNext()
     }
     window.addEventListener("keydown", handleKeyDown)
 
@@ -27,23 +34,23 @@ export function Gallery() {
       document.body.style.overflow = previousOverflow
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [lightboxImage])
+  }, [lightboxIndex])
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: {
         duration: 0.5,
       },
@@ -72,9 +79,9 @@ export function Gallery() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
-          {galleryData.map((image) => (
+          {galleryData.map((image, index) => (
             <motion.div
               key={image.id}
               variants={itemVariants}
@@ -82,11 +89,11 @@ export function Gallery() {
               tabIndex={0}
               aria-label={`View larger image: ${image.title}`}
               className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              onClick={() => setLightboxId(image.id)}
+              onClick={() => setLightboxIndex(index)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault()
-                  setLightboxId(image.id)
+                  setLightboxIndex(index)
                 }
               }}
             >
@@ -94,12 +101,12 @@ export function Gallery() {
                 src={getAssetPath(image.src)}
                 alt={image.alt}
                 fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end p-4">
-                <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="font-semibold">{image.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="font-semibold text-white">{image.title}</h3>
                   {image.description && (
                     <p className="text-sm text-white/80">{image.description}</p>
                   )}
@@ -119,19 +126,49 @@ export function Gallery() {
             aria-modal="true"
             aria-label={lightboxImage.title}
             className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-            onClick={() => setLightboxId(null)}
+            onClick={() => setLightboxIndex(null)}
           >
             <Button
               variant="ghost"
               size="icon"
               autoFocus
               className="absolute top-4 right-4 text-white hover:bg-white/20"
-              onClick={() => setLightboxId(null)}
+              onClick={() => setLightboxIndex(null)}
               aria-label="Close image"
             >
               <X className="h-6 w-6" />
             </Button>
-            <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
+
+            {galleryData.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-2 sm:left-4 text-white hover:bg-white/20"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    showPrev()
+                  }}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-7 w-7" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-2 sm:right-4 text-white hover:bg-white/20"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    showNext()
+                  }}
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-7 w-7" />
+                </Button>
+              </>
+            )}
+
+            <div className="relative w-full h-full max-w-5xl max-h-[85vh]">
               <Image
                 src={getAssetPath(lightboxImage.src)}
                 alt={lightboxImage.alt}
@@ -141,21 +178,18 @@ export function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
+
+            <div
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white/90"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <p className="font-semibold">{lightboxImage.title}</p>
+              {lightboxImage.description && (
+                <p className="text-sm text-white/70">{lightboxImage.description}</p>
+              )}
+            </div>
           </motion.div>
         )}
-
-        {/* Gallery Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            {galleryData.length} total images
-          </p>
-        </motion.div>
       </div>
     </section>
   )
