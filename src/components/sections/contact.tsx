@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Linkedin, Github, Download } from "lucide-react"
+import { Mail, MapPin, Linkedin, Github } from "lucide-react"
 import { profileData } from "@/data/profile"
 
 export function Contact() {
@@ -20,7 +19,7 @@ export function Contact() {
         >
           <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to reach out!
+            I'm always open to discussing new opportunities, collaborations, or questions about my work.
           </p>
         </motion.div>
 
@@ -114,27 +113,18 @@ export function Contact() {
           </motion.div>
         </div>
 
-        {/* Location & Resume */}
+        {/* Location */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-8 text-center space-y-4"
+          className="mt-8 text-center"
         >
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <MapPin className="h-5 w-5" />
             <span>{profileData.location}</span>
           </div>
-          
-          {profileData.resume && (
-            <Button asChild variant="outline" size="lg">
-              <a href={profileData.resume} download>
-                <Download className="h-4 w-4 mr-2" />
-                Download Resume
-              </a>
-            </Button>
-          )}
         </motion.div>
       </div>
     </section>
