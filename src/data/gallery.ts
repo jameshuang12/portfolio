@@ -41,6 +41,16 @@ export const galleryData: GalleryImage[] = [
     height: 1800,
   },
   {
+    id: "nyc-skyline",
+    src: "/images/gallery-nyc-skyline.jpg",
+    alt: "New York City skyline at sunset",
+    title: "New York City",
+    description: "Based in New York City",
+    category: "Home",
+    width: 1800,
+    height: 1012,
+  },
+  {
     id: "hong-kong-skyline",
     src: "/images/gallery-hong-kong-skyline.jpg",
     alt: "Hong Kong skyline at night from Victoria Harbour",
@@ -76,6 +86,7 @@ export const galleryCategories = [
   "All",
   "Professional",
   "Milestones",
+  "Home",
   "Travel",
   "Food",
 ];
