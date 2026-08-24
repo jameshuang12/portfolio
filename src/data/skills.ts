@@ -40,6 +40,7 @@ export const skillsData: Skill[] = [
   { name: "Claude", icon: "claude", iconSource: "simpleicons", category: "AI & ML" },
   { name: "Cursor", icon: "cursor", iconSource: "simpleicons", category: "AI & ML" },
   { name: "GitHub Copilot", icon: "githubcopilot", iconSource: "simpleicons", category: "AI & ML" },
+  { name: "Bob", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", iconSource: "url", category: "AI & ML" },
 
   // DevOps & Platforms
   { name: "Podman", icon: "podman", iconSource: "devicon", category: "DevOps" },

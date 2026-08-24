@@ -11,7 +11,6 @@ export const profileData = {
   name: "James Huang",
   title: "Platform Engineer @ IBM",
   tagline: "Vanderbilt CS & Math Graduate",
-  bio: "Platform Engineer at IBM delivering enterprise PoCs, Generative AI solutions, and hybrid-cloud infrastructure for major clients. Experienced in full-stack development, DevOps, and Agentic AI. Passionate about automation, performance optimization, and translating technical solutions into measurable business value.",
   location: "New York, NY",
   email: "jameshuang.business@gmail.com",
   linkedin: "https://www.linkedin.com/in/james-huang12/",
@@ -27,9 +26,9 @@ export const profileData = {
     "Platform Engineering across Hybrid-Cloud Infrastructure, Database Security, and Enterprise Client PoCs",
     "Generative AI and Agentic AI, including LLM Orchestration and AI Governance",
     "Full-Stack Development with Python, TypeScript, React, and Next.js",
-    "Process Automation That Cut Costs by $30K and Scaled Operations 10x",
+    "Automated Prize Fulfillment, Cutting Costs by $30K and Scaling Operations 10x",
     "LLM Integration and Proxy Services for Enterprise AI Platforms",
-    "Laboratory Automation and Hardware Control for Quantum Research",
+    "Laboratory Automation and Hardware Control for Research Instrumentation",
   ],
   
   // Social links

@@ -12,7 +12,7 @@ export interface Experience {
   title: string;
   company: string;
   location: string;
-  duration: string; // e.g., "8 months", "3 months", "32 months"
+  duration: string; // e.g., "Jun 2025 – Present", "Sep 2024 – May 2025"
   current: boolean;
   description: string;
   responsibilities: string[];
@@ -74,9 +74,9 @@ export const experienceData: Experience[] = [
     location: "Nashville, TN",
     duration: "Sep 2022 – May 2025",
     current: false,
-    description: "Research assistant role developing software for quantum diamond microscopy and laboratory automation.",
+    description: "Research assistant role developing software for microscopy and laboratory automation.",
     responsibilities: [
-      "Designed a custom PyQt6 UI framework with standardized motor, stage, and camera control modules to automate multiple microscopy instruments focused on finding point-defects in semiconductors",
+      "Designed a custom PyQt6 UI framework with standardized motor, stage, and camera control modules to automate multiple microscopy instruments",
     ],
     technologies: ["Python", "PyQt6", "Laboratory Automation", "Hardware Control"],
   },

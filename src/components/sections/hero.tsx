@@ -139,6 +139,7 @@ export function Hero() {
                   sizes="(min-width: 768px) 28rem, 90vw"
                   className="object-cover"
                   priority
+                  loading="eager"
                 />
               </div>
             </div>

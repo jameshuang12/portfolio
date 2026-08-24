@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
   {
     id: "hackduke-2023",
     title: "HackDuke 2023 Project",
-    description: "Hackathon project developed at Duke University focusing on social impact through technology. Built an innovative solution addressing real-world challenges with a team of developers.",
+    description: "Built at HackDuke 2023 in line with the hackathon's mission of using technology for social impact, developed collaboratively with a team.",
     technologies: ["JavaScript", "React", "Node.js", "APIs"],
     githubUrl: "https://github.com/jameshuang12/hachkduke23",
     category: "Hackathon",

@@ -8,13 +8,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jameshuang12.github.io/portfolio'),
-  title: "James Huang | Software Engineer Portfolio",
-  description: "Portfolio of James Huang - Software Engineer specializing in full-stack development, cloud technologies, and modern web applications.",
-  keywords: ["James Huang", "Software Engineer", "Portfolio", "Full Stack Developer", "React", "Next.js", "TypeScript"],
+  title: "James Huang | Platform Engineer @ IBM",
+  description: "Portfolio of James Huang, a Platform Engineer at IBM specializing in hybrid-cloud infrastructure, Generative AI, and enterprise solutions.",
+  keywords: ["James Huang", "Platform Engineer", "IBM", "Generative AI", "Agentic AI", "Hybrid Cloud", "DevOps", "Portfolio"],
   authors: [{ name: "James Huang" }],
   openGraph: {
-    title: "James Huang | Software Engineer Portfolio",
-    description: "Portfolio of James Huang - Software Engineer specializing in full-stack development, cloud technologies, and modern web applications.",
+    title: "James Huang | Platform Engineer @ IBM",
+    description: "Portfolio of James Huang, a Platform Engineer at IBM specializing in hybrid-cloud infrastructure, Generative AI, and enterprise solutions.",
     url: "https://jameshuang12.github.io/portfolio",
     siteName: "James Huang Portfolio",
     images: [
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "James Huang | Software Engineer Portfolio",
-    description: "Portfolio of James Huang - Software Engineer specializing in full-stack development, cloud technologies, and modern web applications.",
+    title: "James Huang | Platform Engineer @ IBM",
+    description: "Portfolio of James Huang, a Platform Engineer at IBM specializing in hybrid-cloud infrastructure, Generative AI, and enterprise solutions.",
     images: ["/portfolio/images/me.jpg"],
   },
   robots: {
