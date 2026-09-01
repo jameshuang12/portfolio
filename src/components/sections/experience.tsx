@@ -109,7 +109,7 @@ export function Experience() {
 
                   <CardContent className="p-5 flex-1 flex flex-col gap-3">
                     <div>
-                      <p className="font-semibold leading-tight">{exp.company}</p>
+                      <h3 className="font-semibold leading-tight">{exp.company}</h3>
                       <p className="text-sm text-muted-foreground leading-tight">{exp.title}</p>
                     </div>
                     <p className="text-xs text-muted-foreground">{exp.duration}</p>

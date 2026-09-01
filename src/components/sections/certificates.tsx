@@ -105,7 +105,7 @@ export function Certificates() {
                     <div className="relative h-56 overflow-hidden">
                       <PdfThumbnail src={getAssetPath(cert.pdfPath)} title={cert.title} />
                       <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 to-transparent p-4">
-                        <p className="font-semibold leading-tight text-white">{cert.title}</p>
+                        <h3 className="font-semibold leading-tight text-white">{cert.title}</h3>
                         <p className="text-sm text-white/80 leading-tight">
                           {cert.issuer} • {cert.issueDate}
                         </p>
@@ -122,7 +122,7 @@ export function Certificates() {
                     <div className="relative h-56">
                       <IssuerVisual issuer={cert.issuer} credentialImageUrl={cert.credentialImageUrl} />
                       <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 to-transparent p-4">
-                        <p className="font-semibold leading-tight text-white">{cert.title}</p>
+                        <h3 className="font-semibold leading-tight text-white">{cert.title}</h3>
                         <p className="text-sm text-white/80 leading-tight">
                           {cert.issuer} • {cert.issueDate}
                         </p>
