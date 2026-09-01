@@ -40,6 +40,28 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "James Huang",
+  jobTitle: "Platform Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "IBM",
+  },
+  url: "https://jameshuang12.github.io/portfolio/",
+  image: "https://jameshuang12.github.io/portfolio/images/me.jpg",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Vanderbilt University",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/james-huang12/",
+    "https://github.com/jameshuang12",
+    "https://www.credly.com/users/james-huang12/badges",
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,6 +70,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
