@@ -45,7 +45,7 @@ export const certificatesData: Certificate[] = [
   {
     id: "enterprise-design-thinking-practitioner",
     title: "Enterprise Design Thinking Practitioner",
-    issuer: "IBM SkillsBuild",
+    issuer: "IBM",
     issueDate: "February 2026",
     credentialUrl: "https://www.credly.com/badges/1bd12f42-ce48-4207-83d7-3f914e837a63",
     credentialImageUrl: "https://images.credly.com/size/340x340/images/520b12b6-dac0-4731-a4f6-e41427201422/BadgeEmblem_EnterpriseDesignThinkingPractitioner.png",
