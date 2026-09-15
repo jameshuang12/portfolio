@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
+import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react"
 import { profileData } from "@/data/profile"
 import { getAssetPath } from "@/lib/paths"
 import Image from "next/image"
@@ -46,7 +46,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-20 pb-16 px-4"
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4"
     >
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -58,19 +58,20 @@ export function Hero() {
             className="space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary">
-                Hi, I'm {profileData.name}
+              <h1 className="text-primary [font-family:var(--font-hero),serif]">
+                <span className="block text-3xl md:text-4xl lg:text-5xl opacity-80">Hi, I'm</span>
+                <span className="block text-5xl md:text-6xl lg:text-7xl mt-2">{profileData.name}</span>
               </h1>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground">
+              <h2 className="text-2xl md:text-3xl text-muted-foreground [font-family:var(--font-hero),serif]">
                 {profileData.title}
               </h2>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <p className="text-lg text-muted-foreground max-w-xl">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl [font-family:var(--font-hero),serif] opacity-80">
                 {profileData.tagline}
               </p>
             </motion.div>
@@ -149,20 +150,29 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 1.5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        aria-hidden="true"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2" />
-        </div>
+        <a
+          href="#about"
+          onClick={(e) => {
+            e.preventDefault()
+            document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })
+          }}
+          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
+          aria-label="Scroll down to explore"
+        >
+          <span className="text-xs font-medium uppercase tracking-widest">Scroll down to learn more</span>
+          <motion.span
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            aria-hidden="true"
+          >
+            <ChevronDown className="h-6 w-6" />
+          </motion.span>
+        </a>
       </motion.div>
     </section>
   )

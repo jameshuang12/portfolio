@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Shrikhand } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MotionConfig } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
+const heroScript = Shrikhand({ subsets: ["latin"], weight: "400", variable: "--font-hero" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jameshuang12.github.io/portfolio'),
@@ -69,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${heroScript.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
