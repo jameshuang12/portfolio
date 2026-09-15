@@ -2,60 +2,79 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { skillsData, skillCategories } from "@/data/skills"
+import { skillsData, type Skill } from "@/data/skills"
 import { useState } from "react"
+
+// Split the flat skill list into three marquee rows of roughly equal length,
+// preserving the category order from skills.ts.
+const rowCount = 3
+const rowSize = Math.ceil(skillsData.length / rowCount)
+const skillRows: Skill[][] = Array.from({ length: rowCount }, (_, i) =>
+  skillsData.slice(i * rowSize, (i + 1) * rowSize)
+)
+
+// Function to get icon URL based on source
+const getIconUrl = (skill: Skill) => {
+  if (skill.iconSource === "fallback") {
+    return null
+  }
+  if (skill.iconSource === "url") {
+    return skill.icon
+  }
+  if (skill.iconSource === "devicon") {
+    // Special case for AWS - use plain-wordmark variant
+    if (skill.icon === "amazonwebservices") {
+      return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-plain-wordmark.svg`
+    }
+    return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`
+  }
+  // simpleicons
+  return `https://cdn.simpleicons.org/${skill.icon}`
+}
+
+function SkillChip({
+  skill,
+  hasError,
+  onImageError,
+}: {
+  skill: Skill
+  hasError: boolean
+  onImageError: (name: string) => void
+}) {
+  const iconUrl = getIconUrl(skill)
+
+  return (
+    <div className="flex items-center gap-3 px-5 py-3 rounded-full border border-border bg-card shadow-sm whitespace-nowrap">
+      {iconUrl && !hasError ? (
+        <Image
+          src={iconUrl}
+          alt=""
+          width={28}
+          height={28}
+          className="w-7 h-7 object-contain"
+          onError={() => onImageError(skill.name)}
+          unoptimized
+        />
+      ) : (
+        <span className="w-7 h-7 flex items-center justify-center text-xs font-bold text-primary bg-primary/10 rounded">
+          {skill.name === "CSS3" ? "CSS" : skill.name === "AWS" ? "AWS" : skill.name.substring(0, 2).toUpperCase()}
+        </span>
+      )}
+      <span className="text-sm font-medium">{skill.name}</span>
+    </div>
+  )
+}
 
 export function Skills() {
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  }
-
-  // Function to get icon URL based on source
-  const getIconUrl = (skill: typeof skillsData[0]) => {
-    if (skill.iconSource === "fallback") {
-      return null
-    }
-    if (skill.iconSource === "url") {
-      return skill.icon
-    }
-    if (skill.iconSource === "devicon") {
-      // Special case for AWS - use plain-wordmark variant
-      if (skill.icon === "amazonwebservices") {
-        return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-plain-wordmark.svg`
-      }
-      return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`
-    }
-    // simpleicons
-    return `https://cdn.simpleicons.org/${skill.icon}`
-  }
 
   const handleImageError = (skillName: string) => {
     setImageErrors(prev => new Set(prev).add(skillName))
   }
 
   return (
-    <section id="skills" className="py-20 px-4 bg-secondary/30">
-      <div className="container mx-auto">
+    <section id="skills" className="py-20 bg-secondary/30 overflow-hidden">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,62 +87,30 @@ export function Skills() {
             Technologies and tools I work with
           </p>
         </motion.div>
+      </div>
 
-        {/* Skills by Category */}
-        <div className="max-w-6xl mx-auto space-y-10">
-          {skillCategories.map((category) => {
-            const categorySkills = skillsData.filter((skill) => skill.category === category)
-            if (categorySkills.length === 0) return null
-
-            return (
-              <div key={category}>
-                <h3 className="text-lg font-semibold text-muted-foreground uppercase tracking-wide mb-4">
-                  {category}
-                </h3>
-                <motion.div
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
-                >
-                  {categorySkills.map((skill) => {
-                    const iconUrl = getIconUrl(skill)
-                    const hasError = imageErrors.has(skill.name)
-
-                    return (
-                      <motion.div key={skill.name} variants={itemVariants}>
-                        <Card className="h-full hover:shadow-lg transition-all hover:scale-105">
-                          <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-3">
-                            {iconUrl && !hasError ? (
-                              <Image
-                                src={iconUrl}
-                                alt={skill.name}
-                                width={48}
-                                height={48}
-                                className="w-12 h-12 object-contain"
-                                style={{ filter: 'none' }}
-                                onError={() => handleImageError(skill.name)}
-                                unoptimized
-                              />
-                            ) : (
-                              <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-primary bg-primary/10 rounded">
-                                {skill.name === "CSS3" ? "CSS" : skill.name === "AWS" ? "AWS" : skill.name.substring(0, 2).toUpperCase()}
-                              </div>
-                            )}
-                            <span className="text-sm font-medium">{skill.name}</span>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    )
-                  })}
-                </motion.div>
-              </div>
-            )
-          })}
-        </div>
+      <div className="space-y-6">
+        {skillRows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="marquee-row overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+          >
+            <div
+              className={`marquee-track flex w-max gap-4 pr-4 ${rowIndex % 2 === 1 ? "marquee-reverse" : ""}`}
+            >
+              {/* Content is doubled so the -50% translate loops seamlessly */}
+              {[...row, ...row].map((skill, i) => (
+                <SkillChip
+                  key={`${skill.name}-${i}`}
+                  skill={skill}
+                  hasError={imageErrors.has(skill.name)}
+                  onImageError={handleImageError}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )
 }
-
