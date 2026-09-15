@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -14,7 +14,11 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/myeyrvzv"
 function IntakeForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   // Bots fill forms instantly; humans take at least a few seconds.
-  const loadedAt = useRef(Date.now())
+  const loadedAt = useRef<number | null>(null)
+
+  useEffect(() => {
+    loadedAt.current = Date.now()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -23,7 +27,7 @@ function IntakeForm() {
     // Honeypot filled or submitted inhumanly fast: silently pretend success
     // so bots don't learn they were filtered.
     const honeypot = (form.elements.namedItem("_gotcha") as HTMLInputElement | null)?.value
-    if (honeypot || Date.now() - loadedAt.current < 3000) {
+    if (honeypot || (loadedAt.current !== null && Date.now() - loadedAt.current < 3000)) {
       setStatus("success")
       form.reset()
       return
