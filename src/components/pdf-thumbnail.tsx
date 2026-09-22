@@ -18,7 +18,13 @@ export function PdfThumbnail({ src, title }: { src: string; title: string }) {
         // The "legacy" build avoids a dynamic self-import that pdf.js's main
         // build does internally, which Turbopack fails to resolve.
         const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs")
-        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/legacy/build/pdf.worker.min.mjs`
+        // Serve the worker from our own bundle rather than a third-party CDN:
+        // no runtime dependency on jsDelivr being reachable, no third-party
+        // script execution, and the worker can never drift from the API version.
+        pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+          "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+          import.meta.url
+        ).toString()
 
         const pdf = await pdfjsLib.getDocument({ url: src }).promise
         const page = await pdf.getPage(1)
