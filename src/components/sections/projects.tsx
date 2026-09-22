@@ -28,6 +28,11 @@ const projectVisuals: Record<string, LucideIcon> = {
   "hackduke-2023": Lightbulb,
 }
 
+// Featured work leads, so adding a non-featured project later can't bury it.
+const orderedProjects = [...projectsData].sort(
+  (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
+)
+
 export function Projects() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,9 +81,9 @@ export function Projects() {
               viewport={{ once: true }}
               className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
             >
-              {projectsData.map((project) => (
+              {orderedProjects.map((project) => (
                 <motion.div key={project.id} variants={itemVariants} className="h-full">
-                  <Card className="h-full flex flex-col hover:shadow-lg transition-shadow overflow-hidden">
+                  <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/40">
                     {/* Visual header */}
                     <div className="relative h-36 bg-gradient-to-br from-primary/15 to-secondary/40 flex items-center justify-center">
                       {(() => {
