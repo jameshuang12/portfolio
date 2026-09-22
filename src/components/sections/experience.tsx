@@ -155,7 +155,7 @@ export function Experience() {
                               <button
                                 type="button"
                                 onClick={() => toggleTags(exp.id)}
-                                className="px-2 py-0.5 text-xs text-muted-foreground border border-border rounded-full hover:bg-accent hover:text-foreground transition-colors"
+                                className="inline-flex items-center min-h-6 px-2.5 text-xs text-muted-foreground border border-border rounded-full hover:bg-accent hover:text-foreground transition-colors"
                                 aria-expanded={expandedTags.has(exp.id)}
                               >
                                 {expandedTags.has(exp.id)

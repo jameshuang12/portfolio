@@ -59,6 +59,18 @@ export function Header() {
     return () => observer.disconnect()
   }, [])
 
+  // Escape closes the mobile menu, matching what people expect from any
+  // overlay — otherwise the only way out is the toggle button.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isMobileMenuOpen])
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {

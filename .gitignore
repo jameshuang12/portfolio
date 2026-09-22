@@ -47,3 +47,6 @@ desktop.ini
 CLAUDE.md
 .claude/
 .claude_session/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
