@@ -32,9 +32,10 @@ export function Header() {
   }, [])
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.querySelector(item.href))
-      .filter((el): el is Element => el !== null)
+    // Observe every section, not just the ones in the nav: sections without a
+    // nav entry (About, Skills) still need to clear the previous highlight
+    // rather than leave a stale link marked current.
+    const sections = Array.from(document.querySelectorAll("main section[id]"))
 
     if (sections.length === 0) return
 

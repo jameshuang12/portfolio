@@ -114,9 +114,10 @@ function IntakeForm() {
         <label htmlFor="contact-subject" className="text-sm font-medium">
           Subject
         </label>
+        {/* Formspree uses _subject as the notification email's subject line */}
         <input
           id="contact-subject"
-          name="subject"
+          name="_subject"
           type="text"
           required
           placeholder="What's this about?"

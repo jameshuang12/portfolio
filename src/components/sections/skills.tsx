@@ -98,14 +98,20 @@ export function Skills() {
             <div
               className={`marquee-track flex w-max gap-4 pr-4 ${rowIndex % 2 === 1 ? "marquee-reverse" : ""}`}
             >
-              {/* Content is doubled so the -50% translate loops seamlessly */}
-              {[...row, ...row].map((skill, i) => (
-                <SkillChip
-                  key={`${skill.name}-${i}`}
-                  skill={skill}
-                  hasError={imageErrors.has(skill.name)}
-                  onImageError={handleImageError}
-                />
+              {/* Content is doubled so the -50% translate loops seamlessly. The
+                  second copy is hidden from assistive tech so screen readers
+                  don't announce every skill twice. */}
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex gap-4" aria-hidden={copy === 1}>
+                  {row.map((skill) => (
+                    <SkillChip
+                      key={`${skill.name}-${copy}`}
+                      skill={skill}
+                      hasError={imageErrors.has(skill.name)}
+                      onImageError={handleImageError}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
           </div>
