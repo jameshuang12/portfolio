@@ -83,26 +83,28 @@ export function Projects() {
             >
               {orderedProjects.map((project) => (
                 <motion.div key={project.id} variants={itemVariants} className="h-full">
-                  <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/40">
-                    {/* Visual header */}
-                    <div className="relative h-36 bg-gradient-to-br from-primary/15 to-secondary/40 flex items-center justify-center">
-                      {(() => {
-                        const VisualIcon = projectVisuals[project.id] ?? Code2
-                        return <VisualIcon className="w-12 h-12 text-primary" strokeWidth={1.5} />
-                      })()}
-                      {project.featured && (
-                        <span className="absolute top-2 right-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full font-medium">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-
+                  <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/40">
                     <CardContent className="p-5 flex-1 flex flex-col gap-3">
-                      <div>
-                        <p className="text-xs font-mono text-muted-foreground uppercase tracking-wide mb-1">
-                          {project.category}
-                        </p>
-                        <h3 className="text-lg font-bold leading-tight">{project.title}</h3>
+                      <div className="flex items-start gap-3">
+                        {(() => {
+                          const VisualIcon = projectVisuals[project.id] ?? Code2
+                          return (
+                            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                              <VisualIcon className="h-5 w-5 text-primary" strokeWidth={1.75} aria-hidden="true" />
+                            </span>
+                          )
+                        })()}
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-mono text-muted-foreground uppercase tracking-wide">
+                            {project.category}
+                          </p>
+                          <h3 className="text-lg font-bold leading-tight">{project.title}</h3>
+                        </div>
+                        {project.featured && (
+                          <span className="flex-shrink-0 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full font-medium">
+                            Featured
+                          </span>
+                        )}
                       </div>
 
                       <p className="text-sm text-muted-foreground">{project.description}</p>
