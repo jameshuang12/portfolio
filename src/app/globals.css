@@ -75,9 +75,16 @@
   @apply bg-primary/80;
 }
 
-/* Smooth scroll behavior */
+/* Smooth scroll behavior. Scripted scrolls call scrollIntoView() with no
+   behavior option so they inherit this, and therefore this guard too. */
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Custom animations */
