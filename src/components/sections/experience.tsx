@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { experienceData } from "@/data/experience"
 import { TechTag } from "@/components/tech-tag"
-import { Briefcase, Calendar, MapPin, type LucideIcon } from "lucide-react"
+import { Briefcase, Calendar, ChevronDown, MapPin, type LucideIcon } from "lucide-react"
 
 // Each company's real logo, sourced directly (Wikimedia Commons for most, plus
 // Chalkline's own inline favicon SVG) rather than Google's favicon proxy —
@@ -63,9 +63,10 @@ function CompanyLogo({ company }: { company: string }) {
 
 export function Experience() {
   const [expandedTags, setExpandedTags] = useState<Set<string>>(new Set())
+  const [expandedDetails, setExpandedDetails] = useState<Set<string>>(new Set())
 
-  const toggleTags = (id: string) => {
-    setExpandedTags((prev) => {
+  const toggleIn = (setter: React.Dispatch<React.SetStateAction<Set<string>>>) => (id: string) => {
+    setter((prev) => {
       const next = new Set(prev)
       if (next.has(id)) {
         next.delete(id)
@@ -75,6 +76,9 @@ export function Experience() {
       return next
     })
   }
+
+  const toggleTags = toggleIn(setExpandedTags)
+  const toggleDetails = toggleIn(setExpandedDetails)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,7 +111,7 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Work Experiences</h2>
+          <h2 className="text-4xl font-bold mb-4">Work Experience</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Where I've worked, most recent first.
           </p>
@@ -142,6 +146,37 @@ export function Experience() {
                         </div>
 
                         <p className="text-sm text-foreground leading-relaxed">{exp.description}</p>
+
+                        {exp.responsibilities.length > 0 && (
+                          <div>
+                            <button
+                              type="button"
+                              onClick={() => toggleDetails(exp.id)}
+                              aria-expanded={expandedDetails.has(exp.id)}
+                              className="inline-flex items-center gap-1 min-h-6 text-sm font-medium text-primary hover:underline"
+                            >
+                              {expandedDetails.has(exp.id) ? "Hide details" : "View details"}
+                              <ChevronDown
+                                className={`h-4 w-4 transition-transform ${expandedDetails.has(exp.id) ? "rotate-180" : ""}`}
+                                aria-hidden="true"
+                              />
+                            </button>
+
+                            {expandedDetails.has(exp.id) && (
+                              <ul className="mt-3 space-y-2">
+                                {exp.responsibilities.map((item, i) => (
+                                  <li key={i} className="flex gap-2.5 text-sm text-muted-foreground leading-relaxed">
+                                    <span
+                                      className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0"
+                                      aria-hidden="true"
+                                    />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        )}
 
                         {exp.technologies.length > 0 && (
                           <div className="flex flex-wrap gap-1.5 pt-1">
