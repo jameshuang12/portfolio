@@ -27,7 +27,7 @@ export const experienceData: Experience[] = [
     location: "New York, NY",
     duration: "Jun 2025 – Present",
     current: true,
-    description: "Platform engineering role delivering enterprise PoCs, hybrid-cloud infrastructure, and AI-driven automation solutions for major clients.",
+    description: "I run client pilots end to end: standing up demo environments, building the GenAI and automation pieces, and proving they work before a deal closes.",
     responsibilities: [
       "Executed over 15 client-facing PoCs across 9 enterprise initiatives, including a pilot that advanced a $5.4M 3-year enterprise license agreement",
       "Accelerated delivery to under 4 weeks per pilot by provisioning dedicated demo environments across hybrid-cloud infrastructure for up to 5 concurrent pilots",
@@ -45,7 +45,7 @@ export const experienceData: Experience[] = [
     location: "Nashville, TN",
     duration: "Sep 2024 – May 2025",
     current: false,
-    description: "Software development internship focused on full-stack automation and operational efficiency improvements.",
+    description: "Replaced a third-party prize fulfillment service with an in-house tool, which cut $30K a year and let the business scale 10x.",
     responsibilities: [
       "Drove $30K in annual savings and 10x business scalability by replacing third-party tooling with a custom fulfillment tool",
       "Shipped a full-stack prize fulfillment tool in Next.js and TypeScript with Auth0 role-based access to automate the final 25% of manual steps and reach 100% fulfillment coverage",
@@ -59,7 +59,7 @@ export const experienceData: Experience[] = [
     location: "Remote",
     duration: "Jun 2024 – Feb 2025",
     current: false,
-    description: "Software engineering internship with focus on LLM integration, proxy services, and Agile team leadership.",
+    description: "Built the proxy layer behind a client-facing LLM assistant, and ran sprints for a six-person team as Scrum Master.",
     responsibilities: [
       "Reduced AI-driven chat assistant response time by 3 seconds to support the client's onboarding process",
       "Architected a high-performance proxy service enabling seamless middleware integration for a client-facing LLM platform",
@@ -74,7 +74,7 @@ export const experienceData: Experience[] = [
     location: "Nashville, TN",
     duration: "Sep 2022 – May 2025",
     current: false,
-    description: "Research assistant role developing software for microscopy and laboratory automation.",
+    description: "Wrote the PyQt6 control software that drives the lab's microscopes, putting motors, stages, and cameras under one interface.",
     responsibilities: [
       "Designed a custom PyQt6 UI framework with standardized motor, stage, and camera control modules to automate multiple microscopy instruments",
     ],
@@ -87,7 +87,7 @@ export const experienceData: Experience[] = [
     location: "Washington, D.C.",
     duration: "May 2023 – Aug 2023",
     current: false,
-    description: "Systems engineering internship focused on SCPI device integration and automated testing.",
+    description: "Automated hardware test setups with SCPI device interfaces, cutting instrument setup time by 90%.",
     responsibilities: [
       "Built over 10 SCPI device interfaces with object-oriented programming and CI/CD practices, automating device test scripts that slashed hardware setup time by 90% while teaching 4 other interns",
     ],

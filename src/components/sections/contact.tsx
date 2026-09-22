@@ -133,7 +133,7 @@ function IntakeForm() {
           name="message"
           required
           rows={5}
-          placeholder="Tell me about the opportunity, collaboration, or question..."
+          placeholder="What's on your mind?"
           className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-y"
         />
       </div>
@@ -158,7 +158,6 @@ export function Contact() {
     {
       icon: Mail,
       title: "Email",
-      description: "Send me an email",
       label: profileData.email,
       href: `mailto:${profileData.email}`,
       external: false,
@@ -166,7 +165,6 @@ export function Contact() {
     {
       icon: Linkedin,
       title: "LinkedIn",
-      description: "Connect professionally",
       label: "View Profile",
       href: profileData.social.linkedin,
       external: true,
@@ -174,7 +172,6 @@ export function Contact() {
     {
       icon: Github,
       title: "GitHub",
-      description: "Check out my code",
       label: "View Repositories",
       href: profileData.social.github,
       external: true,
@@ -212,7 +209,6 @@ export function Contact() {
                     <link.icon className="h-6 w-6 text-primary" aria-hidden="true" />
                   </div>
                   <CardTitle className="text-center">{link.title}</CardTitle>
-                  <CardDescription className="text-center">{link.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
                   <Button variant="outline" asChild className="group max-w-full">

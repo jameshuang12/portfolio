@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
   {
     id: "qudi-iqo-modules",
     title: "Qudi IQO Modules",
-    description: "Developed Python modules for quantum optics experiments using Qudi framework. Implemented hardware interfaces for laser control, data acquisition, and real-time visualization of quantum measurements.",
+    description: "Python modules for quantum optics experiments on the Qudi framework, covering laser control, data acquisition, and live visualization of measurements.",
     technologies: ["Python", "Qt", "Hardware Integration", "Data Visualization"],
     githubUrl: "https://github.com/jameshuang12/qudi-iqo-modules",
     category: "Research",
@@ -46,7 +46,7 @@ export const projectsData: Project[] = [
   {
     id: "low-latency-trading",
     title: "Low-Latency Trading System",
-    description: "Built a high-performance trading system with microsecond-level latency. Implemented order matching engine, market data processing, and risk management using modern C++ and lock-free data structures.",
+    description: "A trading system in modern C++ built on lock-free data structures, with an order matching engine, market data processing, and risk management running at microsecond latency.",
     technologies: ["C++", "Low-Latency", "Trading", "Performance Optimization"],
     githubUrl: "https://github.com/jameshuang12/Low-Latency-Trading-System-101",
     category: "Finance",
@@ -55,7 +55,7 @@ export const projectsData: Project[] = [
   {
     id: "vandy-flights",
     title: "Vandy Flights",
-    description: "Flight booking system developed in React, FastAPI, and Firebase.",
+    description: "Flight booking app built with a team. I worked full stack on it: the FastAPI backend and API, plus the React interface on top.",
     technologies: ["React", "FastAPI", "Firebase", "Python", "JavaScript"],
     githubUrl: "https://github.com/lanierjh/VandyFlights",
     category: "Web",
@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
   {
     id: "stock-analyzer",
     title: "Stock Analyzer",
-    description: "Full-stack web application for stock market analysis with real-time data visualization. Features include technical indicators, portfolio tracking, and predictive analytics using machine learning.",
+    description: "Stock market analysis app with real-time charts, technical indicators, portfolio tracking, and an ML model for predictive analytics.",
     technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Machine Learning"],
     githubUrl: "https://github.com/jameshuang12/GraphAnalyzer",
     category: "Finance",
@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
   {
     id: "hackduke-2023",
     title: "HackDuke 2023 Project",
-    description: "Built at HackDuke 2023 in line with the hackathon's mission of using technology for social impact, developed collaboratively with a team.",
+    description: "Team project from HackDuke 2023, built around the hackathon's social-impact theme. I set up the Node.js backend and the API wiring behind it.",
     technologies: ["JavaScript", "React", "Node.js", "APIs"],
     githubUrl: "https://github.com/jameshuang12/hachkduke23",
     category: "Hackathon",
