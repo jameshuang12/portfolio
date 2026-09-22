@@ -81,7 +81,7 @@ export function Certificates() {
         >
           <h2 className="text-4xl font-bold mb-4">Certificates & Credentials</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Professional certifications and completed courses demonstrating continuous learning
+            Badges and coursework from IBM and LinkedIn Learning.
           </p>
         </motion.div>
 

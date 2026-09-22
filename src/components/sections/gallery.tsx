@@ -69,7 +69,7 @@ export function Gallery() {
         >
           <h2 className="text-4xl font-bold mb-4">Gallery</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A collection of moments and memories
+            Graduation, a couple of skylines, and a lot of good food.
           </p>
         </motion.div>
 

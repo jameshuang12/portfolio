@@ -84,7 +84,7 @@ export function Skills() {
         >
           <h2 className="text-4xl font-bold mb-4">Skills & Technologies</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Technologies and tools I work with
+            What I build with, day to day.
           </p>
         </motion.div>
       </div>

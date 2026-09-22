@@ -21,7 +21,7 @@ export const profileData = {
   // Summary — each entry renders as its own paragraph
   summary: [
     `I'm originally from Moulton, Alabama, a small town where my high school extracurriculars first sparked my interest in engineering and business. That interest pushed me to work hard for the opportunity to attend Vanderbilt University, where I studied Computer Science and Applied Mathematics.`,
-    `I now work as a Platform Engineer at IBM in New York City, and my focus has shifted over time from automation-driven products to AI and app integration. On the tech sales side, I partner with clients from discovery through demos, workshops, and proofs of concept, helping them turn business goals into solutions they adopt and scale.`,
+    `I now work as a Platform Engineer at IBM in New York City, and my focus has shifted over time from automation-driven products to AI and app integration. Much of that work is client-facing: I run discovery sessions, build demos and proofs of concept, and stay involved through deployment.`,
     `When I'm not working, you'll usually find me traveling, spending time with friends and family, trying new restaurants around the city, at the gym, outdoors, playing sports, or keeping up with the latest in tech.`,
   ],
 
@@ -31,9 +31,9 @@ export const profileData = {
     { label: "Generative & Agentic AI", detail: "LLM orchestration and agentic coding workflows" },
     { label: "Full-Stack Development", detail: "Python, TypeScript, React, and Next.js" },
     // Reflects what my manager says it takes to excel in this role
-    { label: "Abstraction & Problem Solving", detail: "Breaking complex systems down into clear goals" },
-    { label: "Client-Facing Communication", detail: "Demos, workshops, and storytelling that translate technical depth into business value" },
-    { label: "Impact-Driven", detail: "Built automation that cut costs by $30K and scaled operations 10x" },
+    { label: "Abstraction & Problem Solving", detail: "Scoping open-ended client problems down to something a team can ship" },
+    { label: "Client-Facing Communication", detail: "Running demos and workshops for audiences from engineers to executives" },
+    { label: "Automation Impact", detail: "$30K saved and 10x operational scale from replacing third-party tooling" },
   ],
   
   // Social links

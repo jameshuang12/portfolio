@@ -67,7 +67,7 @@ export function Projects() {
         >
           <h2 className="text-4xl font-bold mb-4">Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my work and personal projects
+            Work prototypes, research code, and a few things I built for fun.
           </p>
         </motion.div>
 
